@@ -200,3 +200,13 @@ def test_pipeline_is_deterministic_except_processing_time():
     second_dump.pop("processing_time_ms")
 
     assert first_dump == second_dump
+
+def test_frozen_public_api_import_and_return_contract():
+    from engine.pipeline import analyze_policy_documents
+    from shared.contracts.policy_analysis import AnalysisResult
+
+    result = analyze_policy_documents(
+        [FIXTURES / "access_policy.txt"]
+    )
+
+    assert isinstance(result, AnalysisResult)
