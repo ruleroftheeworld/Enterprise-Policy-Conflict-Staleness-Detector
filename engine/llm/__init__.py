@@ -9,6 +9,7 @@ from .verifier import (
     build_verification_prompt,
     parse_verification_response,
     verify_findings,
+    VerificationStats,
 )
 
 __all__ = [
@@ -20,4 +21,5 @@ __all__ = [
     "build_verification_prompt",
     "parse_verification_response",
     "verify_findings",
+    "VerificationStats",
 ]

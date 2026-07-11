@@ -330,3 +330,98 @@ def test_original_finding_is_not_mutated(obligations):
     assert finding.confidence == 0.80
     assert "llm_verification" not in finding.evidence
     assert warnings == []
+
+from engine.llm import VerificationStats
+
+
+def test_stats_record_verified_finding(obligations):
+    stats = VerificationStats()
+
+    provider = FakeProvider(
+        json.dumps(
+            {
+                "verified": True,
+                "confidence": 0.94,
+                "explanation": "Confirmed.",
+            }
+        )
+    )
+
+    result, warnings = verify_findings(
+        [make_finding(score=0.80)],
+        obligations,
+        provider,
+        stats=stats,
+    )
+
+    assert len(result) == 1
+    assert warnings == []
+    assert stats.eligible_findings == 1
+    assert stats.verified_findings == 1
+    assert stats.rejected_findings == 0
+    assert stats.bypassed_findings == 0
+    assert stats.failed_findings == 0
+
+
+def test_stats_record_rejected_finding(obligations):
+    stats = VerificationStats()
+
+    provider = FakeProvider(
+        json.dumps(
+            {
+                "verified": False,
+                "confidence": 0.90,
+                "explanation": "Rejected.",
+            }
+        )
+    )
+
+    result, warnings = verify_findings(
+        [make_finding(score=0.80)],
+        obligations,
+        provider,
+        stats=stats,
+    )
+
+    assert result == []
+    assert warnings == []
+    assert stats.eligible_findings == 1
+    assert stats.rejected_findings == 1
+
+
+def test_stats_record_bypassed_findings(obligations):
+    stats = VerificationStats()
+
+    findings = [
+        make_finding(score=0.60),
+        make_finding(score=0.97),
+    ]
+
+    result, warnings = verify_findings(
+        findings,
+        obligations,
+        FakeProvider("{}"),
+        stats=stats,
+    )
+
+    assert result == findings
+    assert warnings == []
+    assert stats.eligible_findings == 0
+    assert stats.bypassed_findings == 2
+
+
+def test_stats_record_provider_failure(obligations):
+    stats = VerificationStats()
+
+    result, warnings = verify_findings(
+        [make_finding(score=0.80)],
+        obligations,
+        FailingProvider(),
+        stats=stats,
+    )
+
+    assert len(result) == 1
+    assert len(warnings) == 1
+    assert stats.eligible_findings == 1
+    assert stats.failed_findings == 1
+    assert stats.failure_messages == warnings

@@ -16,7 +16,11 @@ from shared.contracts.policy_analysis import (
     NormalizedObligation,
     NormalizedPolicy,
 )
-from engine.llm import LLMProvider, verify_findings
+from engine.llm import (
+    LLMProvider,
+    VerificationStats,
+    verify_findings,
+)
 
 DocumentInput = str | Path
 
@@ -227,12 +231,15 @@ def analyze_policy_documents(
                 )
             )
 
+    llm_stats = VerificationStats()
+
     if findings and llm_provider is not None:
         try:
             findings, llm_warnings = verify_findings(
                 findings,
                 embedded_obligations,
                 llm_provider,
+                stats=llm_stats,
             )
 
             warnings.extend(llm_warnings)
@@ -251,6 +258,27 @@ def analyze_policy_documents(
         obligations=embedded_obligations,
         candidate_count=len(candidates),
         findings=findings,
+    )
+
+    statistics.update(
+        {
+            "llm_enabled": llm_provider is not None,
+            "llm_provider": (
+                type(llm_provider).__name__
+                if llm_provider is not None
+                else None
+            ),
+            "llm_model": (
+                getattr(llm_provider, "model", None)
+                if llm_provider is not None
+                else None
+            ),
+            "llm_eligible_findings": llm_stats.eligible_findings,
+            "llm_verified_findings": llm_stats.verified_findings,
+            "llm_rejected_findings": llm_stats.rejected_findings,
+            "llm_bypassed_findings": llm_stats.bypassed_findings,
+            "llm_failed_findings": llm_stats.failed_findings,
+        }
     )
 
     processing_time_ms = (

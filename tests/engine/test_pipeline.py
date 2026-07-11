@@ -336,3 +336,51 @@ def test_pipeline_single_policy_still_works_with_llm_provider():
     assert len(result.obligations) == 6
     assert result.findings == []
     assert provider.prompts == []
+
+def test_pipeline_reports_disabled_llm_observability():
+    result = analyze_policy_documents(
+        [
+            FIXTURES / "access_policy.txt",
+            FIXTURES / "conflicting_policy.txt",
+            FIXTURES / "network_policy.md",
+            FIXTURES / "legacy_policy.txt",
+        ]
+    )
+
+    assert result.statistics["llm_enabled"] is False
+    assert result.statistics["llm_provider"] is None
+    assert result.statistics["llm_model"] is None
+    assert result.statistics["llm_eligible_findings"] == 0
+    assert result.statistics["llm_verified_findings"] == 0
+    assert result.statistics["llm_rejected_findings"] == 0
+    assert result.statistics["llm_bypassed_findings"] == 0
+    assert result.statistics["llm_failed_findings"] == 0
+
+
+def test_pipeline_reports_llm_observability():
+    provider = PipelineFakeLLMProvider(
+        {
+            "verified": True,
+            "confidence": 0.93,
+            "explanation": "Confirmed.",
+        }
+    )
+
+    result = analyze_policy_documents(
+        [
+            FIXTURES / "access_policy.txt",
+            FIXTURES / "conflicting_policy.txt",
+            FIXTURES / "network_policy.md",
+            FIXTURES / "legacy_policy.txt",
+        ],
+        llm_provider=provider,
+    )
+
+    assert result.statistics["llm_enabled"] is True
+    assert result.statistics["llm_provider"] == "PipelineFakeLLMProvider"
+    assert result.statistics["llm_model"] is None
+    assert result.statistics["llm_eligible_findings"] == 3
+    assert result.statistics["llm_verified_findings"] == 3
+    assert result.statistics["llm_rejected_findings"] == 0
+    assert result.statistics["llm_bypassed_findings"] == 5
+    assert result.statistics["llm_failed_findings"] == 0

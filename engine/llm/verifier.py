@@ -5,7 +5,7 @@ from dataclasses import dataclass
 from typing import Protocol
 
 from shared.contracts.policy_analysis import Finding, NormalizedObligation
-
+from dataclasses import dataclass, field
 
 class LLMProvider(Protocol):
     """Minimal provider interface used by the verifier."""
@@ -20,6 +20,14 @@ class VerificationResult:
     confidence: float
     explanation: str
 
+@dataclass
+class VerificationStats:
+    eligible_findings: int = 0
+    verified_findings: int = 0
+    rejected_findings: int = 0
+    bypassed_findings: int = 0
+    failed_findings: int = 0
+    failure_messages: list[str] = field(default_factory=list)
 
 def _clamp(value: float) -> float:
     return max(0.0, min(1.0, value))
@@ -100,6 +108,7 @@ def verify_findings(
     *,
     minimum_score: float = 0.70,
     maximum_score: float = 0.95,
+    stats: VerificationStats | None = None,
 ) -> tuple[list[Finding], list[str]]:
     """
     Verify ambiguous deterministic findings with an optional LLM provider.
@@ -127,9 +136,14 @@ def verify_findings(
             "minimum_score must be less than maximum_score"
         )
 
-    if provider is None or not findings:
-        return list(findings), []
+    active_stats = stats if stats is not None else VerificationStats()
 
+    if not findings:
+        return [], []
+
+    if provider is None:
+        active_stats.bypassed_findings += len(findings)
+        return list(findings), []
     obligations_by_id = _obligation_index(obligations)
 
     verified_findings: list[Finding] = []
@@ -139,9 +153,11 @@ def verify_findings(
         score = finding.deterministic_score
 
         if score < minimum_score or score >= maximum_score:
+            active_stats.bypassed_findings += 1
             verified_findings.append(finding)
             continue
 
+        active_stats.eligible_findings += 1
         source_id = finding.source_obligation_id
         target_id = finding.target_obligation_id
 
@@ -149,10 +165,14 @@ def verify_findings(
         target = obligations_by_id.get(target_id) if target_id else None
 
         if source is None or target is None:
-            warnings.append(
+            active_stats.failed_findings += 1
+
+            warning = (
                 f"[llm] finding={finding.finding_id!r}: "
                 "source or target obligation not found"
             )
+            warnings.append(warning)
+            active_stats.failure_messages.append(warning)
             verified_findings.append(finding)
             continue
 
@@ -166,15 +186,23 @@ def verify_findings(
             response = provider.generate(prompt)
             verification = parse_verification_response(response)
         except Exception as exc:
-            warnings.append(
+            active_stats.failed_findings += 1
+
+            warning = (
                 f"[llm] finding={finding.finding_id!r}: "
                 f"{_safe_error_message(exc)}"
             )
+
+            warnings.append(warning)
+            active_stats.failure_messages.append(warning)
             verified_findings.append(finding)
             continue
-
+        
         if not verification.verified:
+            active_stats.rejected_findings += 1
             continue
+
+        active_stats.verified_findings += 1
 
         updated = finding.model_copy(
             update={
@@ -206,4 +234,5 @@ __all__ = [
     "build_verification_prompt",
     "parse_verification_response",
     "verify_findings",
+    "VerificationStats",
 ]
