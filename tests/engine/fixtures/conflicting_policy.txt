@@ -1,0 +1,25 @@
+Title: Restricted Access Policy
+Version: 1.4
+Owner: Governance Team
+Department: Risk and Compliance
+Effective Date: 2025-06-01
+Review Date: 2027-06-01
+Status: Active
+
+1. Remote Access Restrictions
+
+Employees must not use multi-factor authentication for remote access.
+
+External vendors may not access the corporate VPN during approved maintenance windows.
+
+2. Privileged Account Management
+
+Administrators must review privileged user accounts every 90 days.
+
+3. Database Protection
+
+Database administrators shall not encrypt database backups using AES-256.
+
+4. Approved Security Controls
+
+Security teams must review firewall rules quarterly.
