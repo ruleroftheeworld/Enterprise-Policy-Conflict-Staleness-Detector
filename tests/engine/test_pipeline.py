@@ -210,3 +210,129 @@ def test_frozen_public_api_import_and_return_contract():
     )
 
     assert isinstance(result, AnalysisResult)
+
+import json
+
+
+class PipelineFakeLLMProvider:
+    def __init__(self, response: dict):
+        self.response = response
+        self.prompts: list[str] = []
+
+    def generate(self, prompt: str) -> str:
+        self.prompts.append(prompt)
+        return json.dumps(self.response)
+
+
+class PipelineFailingLLMProvider:
+    def generate(self, prompt: str) -> str:
+        raise RuntimeError("pipeline provider unavailable")
+
+
+def test_pipeline_default_behavior_unchanged_without_llm():
+    documents = [
+        FIXTURES / "access_policy.txt",
+        FIXTURES / "conflicting_policy.txt",
+        FIXTURES / "network_policy.md",
+        FIXTURES / "legacy_policy.txt",
+    ]
+
+    result = analyze_policy_documents(documents)
+
+    assert len(result.findings) == 8
+    assert all(
+        finding.llm_verified is False
+        for finding in result.findings
+    )
+
+
+def test_pipeline_llm_verifies_ambiguous_findings():
+    provider = PipelineFakeLLMProvider(
+        {
+            "verified": True,
+            "confidence": 0.93,
+            "explanation": "The deterministic finding is valid.",
+        }
+    )
+
+    result = analyze_policy_documents(
+        [
+            FIXTURES / "access_policy.txt",
+            FIXTURES / "conflicting_policy.txt",
+            FIXTURES / "network_policy.md",
+            FIXTURES / "legacy_policy.txt",
+        ],
+        llm_provider=provider,
+    )
+
+    assert provider.prompts
+
+    assert any(
+        finding.llm_verified
+        for finding in result.findings
+    )
+
+    assert result.statistics["findings_total"] == len(result.findings)
+
+
+def test_pipeline_llm_can_reject_ambiguous_findings():
+    provider = PipelineFakeLLMProvider(
+        {
+            "verified": False,
+            "confidence": 0.90,
+            "explanation": "The finding is not supported by context.",
+        }
+    )
+
+    result = analyze_policy_documents(
+        [
+            FIXTURES / "access_policy.txt",
+            FIXTURES / "conflicting_policy.txt",
+            FIXTURES / "network_policy.md",
+            FIXTURES / "legacy_policy.txt",
+        ],
+        llm_provider=provider,
+    )
+
+    assert provider.prompts
+    assert len(result.findings) < 8
+    assert result.statistics["findings_total"] == len(result.findings)
+
+
+def test_pipeline_llm_provider_failure_is_fail_safe():
+    result = analyze_policy_documents(
+        [
+            FIXTURES / "access_policy.txt",
+            FIXTURES / "conflicting_policy.txt",
+            FIXTURES / "network_policy.md",
+            FIXTURES / "legacy_policy.txt",
+        ],
+        llm_provider=PipelineFailingLLMProvider(),
+    )
+
+    assert len(result.findings) == 8
+    assert any(
+        "[llm]" in warning
+        and "pipeline provider unavailable" in warning
+        for warning in result.warnings
+    )
+
+
+def test_pipeline_single_policy_still_works_with_llm_provider():
+    provider = PipelineFakeLLMProvider(
+        {
+            "verified": True,
+            "confidence": 0.95,
+            "explanation": "Confirmed.",
+        }
+    )
+
+    result = analyze_policy_documents(
+        [FIXTURES / "access_policy.txt"],
+        llm_provider=provider,
+    )
+
+    assert len(result.policies) == 1
+    assert len(result.obligations) == 6
+    assert result.findings == []
+    assert provider.prompts == []

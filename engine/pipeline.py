@@ -16,7 +16,7 @@ from shared.contracts.policy_analysis import (
     NormalizedObligation,
     NormalizedPolicy,
 )
-
+from engine.llm import LLMProvider, verify_findings
 
 DocumentInput = str | Path
 
@@ -143,6 +143,8 @@ def _statistics(
 
 def analyze_policy_documents(
     documents: Iterable[DocumentInput] | DocumentInput,
+    *,
+    llm_provider: LLMProvider | None = None,
 ) -> AnalysisResult:
     started = time.perf_counter()
 
@@ -225,6 +227,24 @@ def analyze_policy_documents(
                 )
             )
 
+    if findings and llm_provider is not None:
+        try:
+            findings, llm_warnings = verify_findings(
+                findings,
+                embedded_obligations,
+                llm_provider,
+            )
+
+            warnings.extend(llm_warnings)
+
+        except Exception as exc:
+            warnings.append(
+                _warning(
+                    stage="llm",
+                    document=None,
+                    message=_safe_error_message(exc),
+                )
+            )
     statistics = _statistics(
         documents_received=len(document_list),
         policies=policies,
