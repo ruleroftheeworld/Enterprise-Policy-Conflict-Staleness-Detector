@@ -23,9 +23,9 @@ models/
 ollama_models/
 
 # Embedding caches
+# Embedding caches
 .cache/
 embedding_cache/
-embeddings/
 
 # Generated datasets
 generated/
