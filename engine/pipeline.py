@@ -197,7 +197,20 @@ def analyze_policy_documents(
                 )
             )
 
-            embedded_obligations = obligations
+    if embedded_obligations:
+        try:
+            from engine.detection import compute_corpus_frequencies
+            corpus_freqs = compute_corpus_frequencies(embedded_obligations)
+            for obl in embedded_obligations:
+                obl.corpus_frequency = corpus_freqs.get(obl.obligation_id, 1)
+        except Exception as exc:
+            warnings.append(
+                _warning(
+                    stage="corpus_frequency",
+                    document=None,
+                    message=_safe_error_message(exc),
+                )
+            )
 
     candidates = []
 
@@ -297,6 +310,7 @@ def analyze_policy_documents(
             "llm_verified_findings": llm_stats.verified_findings,
             "llm_rejected_findings": llm_stats.rejected_findings,
             "llm_bypassed_findings": llm_stats.bypassed_findings,
+            "llm_dropped_findings": llm_stats.dropped_findings,
             "llm_failed_findings": llm_stats.failed_findings,
         }
     )

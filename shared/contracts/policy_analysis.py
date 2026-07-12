@@ -44,6 +44,7 @@ class NormalizedObligation(BaseModel):
     frequency: str | None = None
     condition: str | None = None
     exception: str | None = None
+    topic: str | None = None
 
     strength: float
     modality: str
@@ -51,6 +52,8 @@ class NormalizedObligation(BaseModel):
     confidence: float
 
     embedding: list[float] = Field(default_factory=list)
+
+    corpus_frequency: int | None = None
 
 
 class Finding(BaseModel):

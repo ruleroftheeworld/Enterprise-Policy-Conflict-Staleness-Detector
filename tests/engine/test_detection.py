@@ -294,7 +294,7 @@ def test_unrelated_candidates_do_not_create_findings():
             policy_id="policy_a",
         ),
         _obligation(
-            "Employees must review firewall rules.",
+            "Employees must review access logs.",
             policy_id="policy_b",
         ),
     ]

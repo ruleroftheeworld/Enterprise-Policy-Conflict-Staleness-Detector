@@ -7,6 +7,7 @@ from .deterministic_detector import (
     STALE_REFERENCE,
     detect_candidate,
     detect_findings,
+    compute_corpus_frequencies,
 )
 
 __all__ = [
@@ -18,4 +19,5 @@ __all__ = [
     "STALE_REFERENCE",
     "detect_candidate",
     "detect_findings",
+    "compute_corpus_frequencies",
 ]
