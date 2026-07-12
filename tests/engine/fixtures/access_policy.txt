@@ -1,0 +1,23 @@
+Title: Enterprise Access Control Policy
+Version: 2.1
+Owner: Information Security
+Department: Cyber Security
+Effective Date: 2025-01-01
+Review Date: 2027-01-01
+Status: Active
+
+1. User Access Management
+
+Administrators must review privileged user accounts every 30 days.
+
+Employees must use multi-factor authentication for remote access.
+
+Contractors should change temporary passwords every 90 days.
+
+Service accounts must not use interactive login.
+
+2. Database Access
+
+Database administrators are required to encrypt database backups using AES-256.
+
+Production users may access reporting dashboards during business hours.

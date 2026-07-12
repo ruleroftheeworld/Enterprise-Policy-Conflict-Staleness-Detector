@@ -1,0 +1,20 @@
+Title: Legacy Infrastructure Security Policy
+Version: 1.0
+Department: Infrastructure
+Effective Date: 2019-01-01
+Review Date: 2021-01-01
+Status: Active
+
+1. Legacy Encryption
+
+System administrators must use TLS 1.0 for external communications.
+
+Application teams shall use SHA-1 for signing internal software packages.
+
+2. Legacy Servers
+
+Infrastructure teams are required to deploy critical applications on Windows Server 2012.
+
+3. Password Management
+
+Employees should change passwords every 30 days.
