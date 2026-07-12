@@ -1,0 +1,31 @@
+file,title,author,department,version,last_reviewed,status
+policy_01.md,Password Policy,Ava Johnson,Product,v2.3,2023-03-28,active
+policy_02.md,Cloud Security Policy,Priya Nair,Sales,v2.2,2022-07-15,active
+policy_03.md,Data Classification Policy,Ava Johnson,Compliance,v3.4,2024-02-19,active
+policy_04.md,Acceptable Use Policy,Mia Gonzalez,HR,v3.1,2024-03-20,active
+policy_05.md,Data Retention Policy,Ava Johnson,Infrastructure,v3.5,2022-09-22,active
+policy_06.md,Network Security Policy,Noah Patel,Operations,v3.0,2022-12-15,active
+policy_07.md,Encryption Policy,Daniel Kim,Infrastructure,v3.3,2023-04-07,active
+policy_08.md,Access Control Policy,Alex Morgan,Support,v3.2,2023-01-23,active
+policy_09.md,Incident Response Policy,Noah Patel,Compliance,v2.3,2025-12-12,retired
+policy_10.md,Vendor Management Policy,Ethan Walker,Operations,v2.3,2024-12-07,active
+policy_11.md,Remote Work Policy,Daniel Kim,Product,v3.2,2025-06-02,draft
+policy_12.md,Mobile Device Policy,Fatima Noor,IT Security,v3.2,2025-10-09,retired
+policy_13.md,Physical Security Policy,Priya Nair,Legal,v2.0,2025-08-12,draft
+policy_14.md,Change Management Policy,Daniel Kim,Support,v2.0,2025-02-24,active
+policy_15.md,Backup & Recovery Policy,Noah Patel,Compliance,v2.4,2025-04-01,draft
+policy_16.md,Asset Management Policy,Ethan Walker,Operations,v3.4,2025-01-13,active
+policy_17.md,Privacy Policy,Liam Carter,HR,v1.4,2026-01-31,retired
+policy_18.md,Third-Party Risk Policy,Fatima Noor,HR,v1.4,2024-11-06,retired
+policy_19.md,User Provisioning Policy,Daniel Kim,Infrastructure,v1.5,2025-01-18,retired
+policy_20.md,Monitoring Policy,Liam Carter,Finance,v3.2,2025-07-31,draft
+policy_21.md,Logging Policy,Priya Nair,Infrastructure,v1.0,2025-05-02,retired
+policy_22.md,Vulnerability Management Policy,Priya Nair,Operations,v2.1,2025-11-17,retired
+policy_23.md,Patch Management Policy,Ava Johnson,Compliance,v2.3,2025-12-24,draft
+policy_24.md,HR Security Policy,Daniel Kim,Compliance,v1.2,2025-11-04,retired
+policy_25.md,Legal Compliance Policy,Alex Morgan,Operations,v3.5,2025-07-22,active
+policy_26.md,Business Continuity Policy,Ava Johnson,Engineering,v3.0,2026-01-30,active
+policy_27.md,Disaster Recovery Policy,Ethan Walker,Operations,v1.4,2025-10-03,draft
+policy_28.md,Awareness Training Policy,Sophia Chen,Legal,v2.0,2025-08-03,retired
+policy_29.md,Endpoint Security Policy,Alex Morgan,Compliance,v1.3,2025-07-26,active
+policy_30.md,API Security Policy,Alex Morgan,Infrastructure,v1.2,2025-03-16,retired
