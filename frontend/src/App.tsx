@@ -9,7 +9,7 @@ import {
 import type { AnalysisResult, Finding } from './api/types'
 import './App.css'
 
-const ALLOWED_EXTENSIONS = ['.pdf', '.docx', '.txt']
+const ALLOWED_EXTENSIONS = ['.pdf', '.docx', '.txt', '.md']
 
 function App() {
   const [selectedFiles, setSelectedFiles] = useState<File[]>([])

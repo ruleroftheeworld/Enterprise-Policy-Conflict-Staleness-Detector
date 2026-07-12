@@ -12,7 +12,7 @@ from backend.app.services.policy_analysis import (
     analyze_documents,
 )
 
-ALLOWED_DOCUMENT_EXTENSIONS = {".pdf", ".docx", ".txt"}
+ALLOWED_DOCUMENT_EXTENSIONS = {".pdf", ".docx", ".txt", ".md"}
 
 app = FastAPI(
     title="Enterprise Policy Intelligence Platform API",
@@ -60,7 +60,7 @@ async def analyze_policy_files(
                         status_code=status.HTTP_415_UNSUPPORTED_MEDIA_TYPE,
                         detail=(
                             f"Unsupported file type for '{safe_name}'. "
-                            "Allowed types: .pdf, .docx, .txt."
+                            "Allowed types: .pdf, .docx, .txt, .md."
                         ),
                     )
 

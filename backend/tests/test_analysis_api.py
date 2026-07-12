@@ -96,6 +96,45 @@ def test_analyze_policy_files_rejects_empty_file_list() -> None:
 
     assert response.status_code == 422
 
+def test_analyze_policy_files_accepts_markdown_document(
+    monkeypatch: Any,
+) -> None:
+    captured_paths: list[Path] = []
+
+    def fake_analyze_documents(
+        document_paths: list[Path],
+    ) -> dict[str, object]:
+        captured_paths.extend(document_paths)
+
+        assert len(document_paths) == 1
+        assert document_paths[0].exists()
+        assert document_paths[0].name == "0-policy.md"
+        assert document_paths[0].read_bytes() == b"# Password Policy"
+
+        return {
+            "policies": [],
+            "obligations": [],
+            "findings": [],
+            "statistics": {"document_count": 1},
+            "warnings": [],
+            "processing_time_ms": 1.0,
+        }
+
+    monkeypatch.setattr(main, "analyze_documents", fake_analyze_documents)
+
+    response = client.post(
+        "/api/v1/analyses",
+        files=[
+            (
+                "files",
+                ("policy.md", b"# Password Policy", "text/markdown"),
+            ),
+        ],
+    )
+
+    assert response.status_code == 200
+    assert len(captured_paths) == 1
+
 
 def test_analyze_policy_files_rejects_unsupported_extension() -> None:
     response = client.post(
@@ -109,7 +148,7 @@ def test_analyze_policy_files_rejects_unsupported_extension() -> None:
     assert response.json() == {
         "detail": (
             "Unsupported file type for 'policy.exe'. "
-            "Allowed types: .pdf, .docx, .txt."
+            "Allowed types: .pdf, .docx, .txt, .md."
         )
     }
 

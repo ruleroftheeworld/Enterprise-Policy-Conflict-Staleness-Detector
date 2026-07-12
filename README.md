@@ -138,7 +138,7 @@ GET /health
 POST /api/v1/analyses
 ```
 
-Upload one or more `.pdf`, `.docx`, or `.txt` policy documents using the multipart form field `files`.
+Upload one or more `.pdf`, `.docx`, `.txt`, or `.md` policy documents using the multipart form field `files`.
 
 The API returns policies, obligations, findings, statistics, warnings, and processing time for display in the dashboard.
 
