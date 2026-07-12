@@ -76,7 +76,7 @@ def test_pipeline_detects_expected_cross_policy_findings():
     assert result.statistics["documents_failed"] == 0
     assert result.statistics["obligations_extracted"] == 20
     assert result.statistics["candidate_pairs"] == 11
-    assert result.statistics["findings_total"] == 8
+    assert result.statistics["findings_total"] == 12
 
 
 def test_pipeline_returns_embedded_obligations():
@@ -210,3 +210,188 @@ def test_frozen_public_api_import_and_return_contract():
     )
 
     assert isinstance(result, AnalysisResult)
+
+import json
+
+
+class PipelineFakeLLMProvider:
+    def __init__(self, response: dict):
+        self.response = response
+        self.prompts: list[str] = []
+
+    def generate(self, prompt: str) -> str:
+        self.prompts.append(prompt)
+        return json.dumps(self.response)
+
+
+class PipelineFailingLLMProvider:
+    def generate(self, prompt: str) -> str:
+        raise RuntimeError("pipeline provider unavailable")
+
+
+def test_pipeline_default_behavior_unchanged_without_llm():
+    documents = [
+        FIXTURES / "access_policy.txt",
+        FIXTURES / "conflicting_policy.txt",
+        FIXTURES / "network_policy.md",
+        FIXTURES / "legacy_policy.txt",
+    ]
+
+    result = analyze_policy_documents(documents)
+
+    # 8 cross-policy findings + 4 staleness findings (1 STALE_POLICY + 3
+    # STALE_REFERENCE from legacy_policy.txt with review_date=2021)
+    assert len(result.findings) == 12
+    assert all(
+        finding.llm_verified is False
+        for finding in result.findings
+    )
+
+
+def test_pipeline_llm_verifies_ambiguous_findings():
+    provider = PipelineFakeLLMProvider(
+        {
+            "verified": True,
+            "confidence": 0.93,
+            "explanation": "The deterministic finding is valid.",
+        }
+    )
+
+    result = analyze_policy_documents(
+        [
+            FIXTURES / "access_policy.txt",
+            FIXTURES / "conflicting_policy.txt",
+            FIXTURES / "network_policy.md",
+            FIXTURES / "legacy_policy.txt",
+        ],
+        llm_provider=provider,
+    )
+
+    assert provider.prompts
+
+    assert any(
+        finding.llm_verified
+        for finding in result.findings
+    )
+
+    assert result.statistics["findings_total"] == len(result.findings)
+
+
+def test_pipeline_llm_can_reject_ambiguous_findings():
+    provider = PipelineFakeLLMProvider(
+        {
+            "verified": False,
+            "confidence": 0.90,
+            "explanation": "The finding is not supported by context.",
+        }
+    )
+
+    result = analyze_policy_documents(
+        [
+            FIXTURES / "access_policy.txt",
+            FIXTURES / "conflicting_policy.txt",
+            FIXTURES / "network_policy.md",
+            FIXTURES / "legacy_policy.txt",
+        ],
+        llm_provider=provider,
+    )
+
+    assert provider.prompts
+    # LLM rejects some of the 8 cross-policy findings; staleness findings
+    # (deterministic_score=1.0) are bypassed unchanged, so total is <12.
+    assert len(result.findings) < 12
+    assert result.statistics["findings_total"] == len(result.findings)
+
+
+def test_pipeline_llm_provider_failure_is_fail_safe():
+    result = analyze_policy_documents(
+        [
+            FIXTURES / "access_policy.txt",
+            FIXTURES / "conflicting_policy.txt",
+            FIXTURES / "network_policy.md",
+            FIXTURES / "legacy_policy.txt",
+        ],
+        llm_provider=PipelineFailingLLMProvider(),
+    )
+
+    # LLM fails, so all 8 cross-policy findings are preserved; 4 staleness
+    # findings (score=1.0) are bypassed before LLM gets to see them, giving 12.
+    assert len(result.findings) == 12
+    assert any(
+        "[llm]" in warning
+        and "pipeline provider unavailable" in warning
+        for warning in result.warnings
+    )
+
+
+def test_pipeline_single_policy_still_works_with_llm_provider():
+    provider = PipelineFakeLLMProvider(
+        {
+            "verified": True,
+            "confidence": 0.95,
+            "explanation": "Confirmed.",
+        }
+    )
+
+    result = analyze_policy_documents(
+        [FIXTURES / "access_policy.txt"],
+        llm_provider=provider,
+    )
+
+    assert len(result.policies) == 1
+    assert len(result.obligations) == 6
+    assert result.findings == []
+    assert provider.prompts == []
+
+def test_pipeline_reports_disabled_llm_observability():
+    result = analyze_policy_documents(
+        [
+            FIXTURES / "access_policy.txt",
+            FIXTURES / "conflicting_policy.txt",
+            FIXTURES / "network_policy.md",
+            FIXTURES / "legacy_policy.txt",
+        ]
+    )
+
+    assert result.statistics["llm_enabled"] is False
+    assert result.statistics["llm_provider"] is None
+    assert result.statistics["llm_model"] is None
+    assert result.statistics["llm_eligible_findings"] == 0
+    assert result.statistics["llm_verified_findings"] == 0
+    assert result.statistics["llm_rejected_findings"] == 0
+    assert result.statistics["llm_bypassed_findings"] == 0
+    assert result.statistics["llm_failed_findings"] == 0
+
+
+def test_pipeline_reports_llm_observability():
+    provider = PipelineFakeLLMProvider(
+        {
+            "verified": True,
+            "confidence": 0.93,
+            "explanation": "Confirmed.",
+        }
+    )
+
+    result = analyze_policy_documents(
+        [
+            FIXTURES / "access_policy.txt",
+            FIXTURES / "conflicting_policy.txt",
+            FIXTURES / "network_policy.md",
+            FIXTURES / "legacy_policy.txt",
+        ],
+        llm_provider=provider,
+    )
+
+    assert result.statistics["llm_enabled"] is True
+    assert result.statistics["llm_provider"] == "PipelineFakeLLMProvider"
+    assert result.statistics["llm_model"] is None
+    assert result.statistics["llm_eligible_findings"] == 5
+    assert result.statistics["llm_verified_findings"] == 5
+    assert result.statistics["llm_rejected_findings"] == 0
+    # 4 staleness findings (score=1.0 >= 0.95 bypass threshold) + findings
+    # with score >= 0.95 that are not staleness bypass the LLM.
+    # The remaining high-score findings that were previously auto-bypassed
+    # at the old 0.70 threshold now enter the LLM band (eligible).
+    assert result.statistics["llm_bypassed_findings"] == 7
+    assert result.statistics["llm_dropped_findings"] == 0
+    assert result.statistics["llm_failed_findings"] == 0

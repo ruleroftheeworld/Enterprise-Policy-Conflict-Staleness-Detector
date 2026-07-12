@@ -169,3 +169,44 @@ def test_extract_access_policy_obligations():
     assert "RECOMMENDED" in modalities
     assert "OPTIONAL" in modalities
     assert "PROHIBITED" in modalities   
+
+def test_extracts_bare_required_form():
+    obligation = extract_obligation(
+        policy_id="policy_test",
+        section_id="section_test",
+        sentence="All users required change as per company standards.",
+    )
+
+    assert obligation is not None
+    assert obligation.modality == "REQUIRED"
+    assert obligation.negated is False
+    assert obligation.subject == "All users"
+    assert obligation.action == "change"
+
+
+def test_extracts_bare_recommended_form():
+    obligation = extract_obligation(
+        policy_id="policy_test",
+        section_id="section_test",
+        sentence="All users recommended backup as per company standards.",
+    )
+
+    assert obligation is not None
+    assert obligation.modality == "RECOMMENDED"
+    assert obligation.negated is False
+    assert obligation.subject == "All users"
+    assert obligation.action == "backup"
+
+
+def test_extracts_bare_prohibited_form():
+    obligation = extract_obligation(
+        policy_id="policy_test",
+        section_id="section_test",
+        sentence="Developers prohibited asset as per company standards.",
+    )
+
+    assert obligation is not None
+    assert obligation.modality == "PROHIBITED"
+    assert obligation.negated is True
+    assert obligation.subject == "Developers"
+    assert obligation.action == "asset"

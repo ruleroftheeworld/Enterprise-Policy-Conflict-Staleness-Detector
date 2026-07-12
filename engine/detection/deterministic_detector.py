@@ -15,6 +15,8 @@ CONTRADICTION = "CONTRADICTION"
 FREQUENCY_MISMATCH = "FREQUENCY_MISMATCH"
 REDUNDANCY = "REDUNDANCY"
 MODALITY_INCONSISTENCY = "MODALITY_INCONSISTENCY"
+STALE_POLICY = "STALE_POLICY"
+STALE_REFERENCE = "STALE_REFERENCE"
 
 
 @dataclass(frozen=True)
@@ -79,10 +81,41 @@ def _scope_compatible(
     first: NormalizedObligation,
     second: NormalizedObligation,
 ) -> bool:
+    """
+    Return True when the two obligations may share the same scope.
+
+    - Both None: genuinely unknown vs unknown — let the LLM decide, treat as
+      compatible here so the finding is emitted and enters the LLM band.
+    - One None, one populated: asymmetric information; still structurally
+      compatible (the populated scope may apply to both), but a -0.10 score
+      penalty is applied by _scope_penalty so the finding lands in the LLM
+      verification band rather than skewing toward auto-accept.
+    - Both populated and equal: compatible.
+    - Both populated and different: incompatible (unchanged).
+    """
+    if first.scope is None and second.scope is None:
+        return True
+
     if first.scope is None or second.scope is None:
+        # asymmetric: one side has scope context, the other doesn't
         return True
 
     return first.scope == second.scope
+
+
+def _scope_penalty(
+    first: NormalizedObligation,
+    second: NormalizedObligation,
+) -> float:
+    """
+    Return a deterministic-score penalty when scope information is
+    asymmetric (one obligation has a scope, the other doesn't).
+
+    - Both None or both populated: 0.0 (no penalty)
+    - One None, one populated: -0.10
+    """
+    one_none = (first.scope is None) != (second.scope is None)
+    return -0.10 if one_none else 0.0
 
 
 def _technology_compatible(
@@ -273,11 +306,17 @@ def _is_redundancy(
     if not _technology_compatible(first, second):
         return False
 
+    if first.corpus_frequency is not None and first.corpus_frequency >= 5:
+        return False
+
+    if second.corpus_frequency is not None and second.corpus_frequency >= 5:
+        return False
+
     return (
         first.modality == second.modality
         and first.negated == second.negated
         and first.frequency == second.frequency
-        and candidate.cosine_similarity >= 0.90
+        and candidate.cosine_similarity >= 0.95
     )
 
 
@@ -346,6 +385,7 @@ def _deterministic_score(
         + 0.10 * candidate.cosine_similarity
         + 0.05 * structural_score
         + 0.05 * confidence_score
+        + _scope_penalty(first, second)  # -0.10 when scope is asymmetric
     )
 
     return _rounded(score)
@@ -549,3 +589,42 @@ def detect_findings(
     )
 
     return findings
+
+
+def compute_corpus_frequencies(
+    obligations: list[NormalizedObligation],
+) -> dict[str, int]:
+    from engine.candidates.candidate_generator import cosine_similarity
+
+    normalized_texts = {}
+    for obl in obligations:
+        text = obl.sentence_text.lower().strip()
+        text = re.sub(r"\s+", " ", text)
+        text = re.sub(r"[^\w\s]", "", text)
+        normalized_texts[obl.obligation_id] = text
+
+    obl_to_freq = {}
+    for obl_a in obligations:
+        matching_policies = {obl_a.policy_id}
+        norm_a = normalized_texts[obl_a.obligation_id]
+        emb_a = obl_a.embedding
+
+        for obl_b in obligations:
+            if obl_b.policy_id == obl_a.policy_id:
+                continue
+            if obl_b.policy_id in matching_policies:
+                continue
+
+            norm_b = normalized_texts[obl_b.obligation_id]
+            if norm_a == norm_b:
+                matching_policies.add(obl_b.policy_id)
+                continue
+
+            if emb_a and obl_b.embedding:
+                sim = cosine_similarity(emb_a, obl_b.embedding)
+                if sim >= 0.95:
+                    matching_policies.add(obl_b.policy_id)
+
+        obl_to_freq[obl_a.obligation_id] = len(matching_policies)
+
+    return obl_to_freq

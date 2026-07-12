@@ -104,3 +104,26 @@ def test_policy_ids_are_deterministic():
     second_section_ids = [section.section_id for section in second.sections]
 
     assert first_section_ids == second_section_ids
+
+
+def test_bold_markdown_metadata_review_date():
+    """Regression test: real policy files use '**Last Reviewed:** YYYY-MM-DD'.
+
+    Ensures the ingestion parser strips markdown bold markers and matches the
+    'last reviewed' alias so review_date is a real date object, not None.
+    """
+    from datetime import date
+
+    policy = load_policy_document(FIXTURES / "bold_metadata_policy.md")
+
+    # Core assertion: review_date must be parsed as a date, never None.
+    assert policy.review_date is not None, (
+        "review_date was None — '**Last Reviewed:**' format not recognised"
+    )
+    assert isinstance(policy.review_date, date)
+    assert policy.review_date == date(2021, 8, 15)
+
+    # Bonus assertions: other bold-formatted fields should also parse.
+    assert policy.version == "v1.0"
+    assert policy.department == "Security"
+    assert policy.status == "active"

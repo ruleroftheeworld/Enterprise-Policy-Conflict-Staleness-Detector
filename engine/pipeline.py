@@ -11,12 +11,17 @@ from engine.embeddings import embed_obligations
 from engine.extraction import extract_policy_obligations
 from engine.ingestion import load_policy_document
 from engine.normalization import normalize_obligations
+from engine.staleness import detect_staleness
 from shared.contracts.policy_analysis import (
     AnalysisResult,
     NormalizedObligation,
     NormalizedPolicy,
 )
-
+from engine.llm import (
+    LLMProvider,
+    VerificationStats,
+    verify_findings,
+)
 
 DocumentInput = str | Path
 
@@ -143,6 +148,8 @@ def _statistics(
 
 def analyze_policy_documents(
     documents: Iterable[DocumentInput] | DocumentInput,
+    *,
+    llm_provider: LLMProvider | None = None,
 ) -> AnalysisResult:
     started = time.perf_counter()
 
@@ -190,7 +197,20 @@ def analyze_policy_documents(
                 )
             )
 
-            embedded_obligations = obligations
+    if embedded_obligations:
+        try:
+            from engine.detection import compute_corpus_frequencies
+            corpus_freqs = compute_corpus_frequencies(embedded_obligations)
+            for obl in embedded_obligations:
+                obl.corpus_frequency = corpus_freqs.get(obl.obligation_id, 1)
+        except Exception as exc:
+            warnings.append(
+                _warning(
+                    stage="corpus_frequency",
+                    document=None,
+                    message=_safe_error_message(exc),
+                )
+            )
 
     candidates = []
 
@@ -225,12 +245,74 @@ def analyze_policy_documents(
                 )
             )
 
+    # ------------------------------------------------------------------
+    # Staleness detection — per-policy, independent of candidate pairs
+    # ------------------------------------------------------------------
+    for policy in policies:
+        try:
+            staleness_findings = detect_staleness(
+                policy,
+                embedded_obligations,
+            )
+            findings.extend(staleness_findings)
+        except Exception as exc:
+            warnings.append(
+                _warning(
+                    stage="staleness",
+                    document=policy.source_file,
+                    message=_safe_error_message(exc),
+                )
+            )
+
+    llm_stats = VerificationStats()
+
+    if findings and llm_provider is not None:
+        try:
+            findings, llm_warnings = verify_findings(
+                findings,
+                embedded_obligations,
+                llm_provider,
+                stats=llm_stats,
+            )
+
+            warnings.extend(llm_warnings)
+
+        except Exception as exc:
+            warnings.append(
+                _warning(
+                    stage="llm",
+                    document=None,
+                    message=_safe_error_message(exc),
+                )
+            )
     statistics = _statistics(
         documents_received=len(document_list),
         policies=policies,
         obligations=embedded_obligations,
         candidate_count=len(candidates),
         findings=findings,
+    )
+
+    statistics.update(
+        {
+            "llm_enabled": llm_provider is not None,
+            "llm_provider": (
+                type(llm_provider).__name__
+                if llm_provider is not None
+                else None
+            ),
+            "llm_model": (
+                getattr(llm_provider, "model", None)
+                if llm_provider is not None
+                else None
+            ),
+            "llm_eligible_findings": llm_stats.eligible_findings,
+            "llm_verified_findings": llm_stats.verified_findings,
+            "llm_rejected_findings": llm_stats.rejected_findings,
+            "llm_bypassed_findings": llm_stats.bypassed_findings,
+            "llm_dropped_findings": llm_stats.dropped_findings,
+            "llm_failed_findings": llm_stats.failed_findings,
+        }
     )
 
     processing_time_ms = (

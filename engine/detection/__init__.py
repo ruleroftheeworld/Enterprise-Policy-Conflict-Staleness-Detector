@@ -3,8 +3,11 @@ from .deterministic_detector import (
     FREQUENCY_MISMATCH,
     MODALITY_INCONSISTENCY,
     REDUNDANCY,
+    STALE_POLICY,
+    STALE_REFERENCE,
     detect_candidate,
     detect_findings,
+    compute_corpus_frequencies,
 )
 
 __all__ = [
@@ -12,6 +15,9 @@ __all__ = [
     "FREQUENCY_MISMATCH",
     "MODALITY_INCONSISTENCY",
     "REDUNDANCY",
+    "STALE_POLICY",
+    "STALE_REFERENCE",
     "detect_candidate",
     "detect_findings",
+    "compute_corpus_frequencies",
 ]

@@ -185,6 +185,9 @@ def generate_candidate_pairs(
         if _is_exact_duplicate_evidence(source, target):
             continue
 
+        if getattr(source, "topic", None) != getattr(target, "topic", None):
+            continue
+
         if not _has_semantic_anchor(source, target):
             continue
 
