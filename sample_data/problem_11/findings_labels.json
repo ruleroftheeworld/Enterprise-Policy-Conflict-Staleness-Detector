@@ -1,0 +1,702 @@
+[
+  {
+    "finding_type": "CONFLICT",
+    "finding_subtype": "DIRECT_CONFLICT",
+    "severity": "HIGH",
+    "policy_a": "policy_05.md",
+    "policy_b": "policy_26.md",
+    "description": "Direct contradiction between policy_05.md and policy_26.md on vendor.",
+    "explanation": "policy_05.md requires X, but policy_26.md prohibits X."
+  },
+  {
+    "finding_type": "CONFLICT",
+    "finding_subtype": "DIRECT_CONFLICT",
+    "severity": "HIGH",
+    "policy_a": "policy_02.md",
+    "policy_b": "policy_07.md",
+    "description": "Direct contradiction between policy_02.md and policy_07.md on HR.",
+    "explanation": "policy_02.md requires X, but policy_07.md prohibits X."
+  },
+  {
+    "finding_type": "CONFLICT",
+    "finding_subtype": "DIRECT_CONFLICT",
+    "severity": "HIGH",
+    "policy_a": "policy_05.md",
+    "policy_b": "policy_23.md",
+    "description": "Direct contradiction between policy_05.md and policy_23.md on HR.",
+    "explanation": "policy_05.md requires X, but policy_23.md prohibits X."
+  },
+  {
+    "finding_type": "CONFLICT",
+    "finding_subtype": "DIRECT_CONFLICT",
+    "severity": "HIGH",
+    "policy_a": "policy_29.md",
+    "policy_b": "policy_28.md",
+    "description": "Direct contradiction between policy_29.md and policy_28.md on asset.",
+    "explanation": "policy_29.md requires X, but policy_28.md prohibits X."
+  },
+  {
+    "finding_type": "CONFLICT",
+    "finding_subtype": "DIRECT_CONFLICT",
+    "severity": "HIGH",
+    "policy_a": "policy_12.md",
+    "policy_b": "policy_24.md",
+    "description": "Direct contradiction between policy_12.md and policy_24.md on data retention.",
+    "explanation": "policy_12.md requires X, but policy_24.md prohibits X."
+  },
+  {
+    "finding_type": "CONFLICT",
+    "finding_subtype": "DIRECT_CONFLICT",
+    "severity": "HIGH",
+    "policy_a": "policy_30.md",
+    "policy_b": "policy_09.md",
+    "description": "Direct contradiction between policy_30.md and policy_09.md on logging.",
+    "explanation": "policy_30.md requires X, but policy_09.md prohibits X."
+  },
+  {
+    "finding_type": "CONFLICT",
+    "finding_subtype": "DIRECT_CONFLICT",
+    "severity": "HIGH",
+    "policy_a": "policy_28.md",
+    "policy_b": "policy_03.md",
+    "description": "Direct contradiction between policy_28.md and policy_03.md on network.",
+    "explanation": "policy_28.md requires X, but policy_03.md prohibits X."
+  },
+  {
+    "finding_type": "CONFLICT",
+    "finding_subtype": "DIRECT_CONFLICT",
+    "severity": "HIGH",
+    "policy_a": "policy_24.md",
+    "policy_b": "policy_12.md",
+    "description": "Direct contradiction between policy_24.md and policy_12.md on encryption.",
+    "explanation": "policy_24.md requires X, but policy_12.md prohibits X."
+  },
+  {
+    "finding_type": "CONFLICT",
+    "finding_subtype": "DIRECT_CONFLICT",
+    "severity": "HIGH",
+    "policy_a": "policy_04.md",
+    "policy_b": "policy_10.md",
+    "description": "Direct contradiction between policy_04.md and policy_10.md on vendor.",
+    "explanation": "policy_04.md requires X, but policy_10.md prohibits X."
+  },
+  {
+    "finding_type": "CONFLICT",
+    "finding_subtype": "DIRECT_CONFLICT",
+    "severity": "HIGH",
+    "policy_a": "policy_06.md",
+    "policy_b": "policy_19.md",
+    "description": "Direct contradiction between policy_06.md and policy_19.md on data retention.",
+    "explanation": "policy_06.md requires X, but policy_19.md prohibits X."
+  },
+  {
+    "finding_type": "CONFLICT",
+    "finding_subtype": "DIRECT_CONFLICT",
+    "severity": "HIGH",
+    "policy_a": "policy_09.md",
+    "policy_b": "policy_17.md",
+    "description": "Direct contradiction between policy_09.md and policy_17.md on provisioning.",
+    "explanation": "policy_09.md requires X, but policy_17.md prohibits X."
+  },
+  {
+    "finding_type": "CONFLICT",
+    "finding_subtype": "DIRECT_CONFLICT",
+    "severity": "HIGH",
+    "policy_a": "policy_18.md",
+    "policy_b": "policy_27.md",
+    "description": "Direct contradiction between policy_18.md and policy_27.md on patch.",
+    "explanation": "policy_18.md requires X, but policy_27.md prohibits X."
+  },
+  {
+    "finding_type": "CONFLICT",
+    "finding_subtype": "DIRECT_CONFLICT",
+    "severity": "HIGH",
+    "policy_a": "policy_15.md",
+    "policy_b": "policy_25.md",
+    "description": "Direct contradiction between policy_15.md and policy_25.md on provisioning.",
+    "explanation": "policy_15.md requires X, but policy_25.md prohibits X."
+  },
+  {
+    "finding_type": "CONFLICT",
+    "finding_subtype": "DIRECT_CONFLICT",
+    "severity": "HIGH",
+    "policy_a": "policy_09.md",
+    "policy_b": "policy_03.md",
+    "description": "Direct contradiction between policy_09.md and policy_03.md on access.",
+    "explanation": "policy_09.md requires X, but policy_03.md prohibits X."
+  },
+  {
+    "finding_type": "CONFLICT",
+    "finding_subtype": "DIRECT_CONFLICT",
+    "severity": "HIGH",
+    "policy_a": "policy_21.md",
+    "policy_b": "policy_08.md",
+    "description": "Direct contradiction between policy_21.md and policy_08.md on password.",
+    "explanation": "policy_21.md requires X, but policy_08.md prohibits X."
+  },
+  {
+    "finding_type": "CONFLICT",
+    "finding_subtype": "PARTIAL_CONFLICT",
+    "severity": "MEDIUM",
+    "policy_a": "policy_03.md",
+    "policy_b": "policy_30.md",
+    "description": "Scope-dependent contradiction between policy_03.md and policy_30.md on backup.",
+    "explanation": "policy_03.md applies to all users, policy_30.md to admins only."
+  },
+  {
+    "finding_type": "CONFLICT",
+    "finding_subtype": "PARTIAL_CONFLICT",
+    "severity": "MEDIUM",
+    "policy_a": "policy_25.md",
+    "policy_b": "policy_30.md",
+    "description": "Scope-dependent contradiction between policy_25.md and policy_30.md on provisioning.",
+    "explanation": "policy_25.md applies to all users, policy_30.md to admins only."
+  },
+  {
+    "finding_type": "CONFLICT",
+    "finding_subtype": "PARTIAL_CONFLICT",
+    "severity": "MEDIUM",
+    "policy_a": "policy_06.md",
+    "policy_b": "policy_11.md",
+    "description": "Scope-dependent contradiction between policy_06.md and policy_11.md on api.",
+    "explanation": "policy_06.md applies to all users, policy_11.md to admins only."
+  },
+  {
+    "finding_type": "CONFLICT",
+    "finding_subtype": "PARTIAL_CONFLICT",
+    "severity": "MEDIUM",
+    "policy_a": "policy_19.md",
+    "policy_b": "policy_04.md",
+    "description": "Scope-dependent contradiction between policy_19.md and policy_04.md on backup.",
+    "explanation": "policy_19.md applies to all users, policy_04.md to admins only."
+  },
+  {
+    "finding_type": "CONFLICT",
+    "finding_subtype": "PARTIAL_CONFLICT",
+    "severity": "MEDIUM",
+    "policy_a": "policy_16.md",
+    "policy_b": "policy_26.md",
+    "description": "Scope-dependent contradiction between policy_16.md and policy_26.md on endpoint.",
+    "explanation": "policy_16.md applies to all users, policy_26.md to admins only."
+  },
+  {
+    "finding_type": "CONFLICT",
+    "finding_subtype": "PARTIAL_CONFLICT",
+    "severity": "MEDIUM",
+    "policy_a": "policy_15.md",
+    "policy_b": "policy_12.md",
+    "description": "Scope-dependent contradiction between policy_15.md and policy_12.md on endpoint.",
+    "explanation": "policy_15.md applies to all users, policy_12.md to admins only."
+  },
+  {
+    "finding_type": "CONFLICT",
+    "finding_subtype": "PARTIAL_CONFLICT",
+    "severity": "MEDIUM",
+    "policy_a": "policy_28.md",
+    "policy_b": "policy_16.md",
+    "description": "Scope-dependent contradiction between policy_28.md and policy_16.md on asset.",
+    "explanation": "policy_28.md applies to all users, policy_16.md to admins only."
+  },
+  {
+    "finding_type": "CONFLICT",
+    "finding_subtype": "PARTIAL_CONFLICT",
+    "severity": "MEDIUM",
+    "policy_a": "policy_02.md",
+    "policy_b": "policy_07.md",
+    "description": "Scope-dependent contradiction between policy_02.md and policy_07.md on logging.",
+    "explanation": "policy_02.md applies to all users, policy_07.md to admins only."
+  },
+  {
+    "finding_type": "CONFLICT",
+    "finding_subtype": "PARTIAL_CONFLICT",
+    "severity": "MEDIUM",
+    "policy_a": "policy_16.md",
+    "policy_b": "policy_22.md",
+    "description": "Scope-dependent contradiction between policy_16.md and policy_22.md on password.",
+    "explanation": "policy_16.md applies to all users, policy_22.md to admins only."
+  },
+  {
+    "finding_type": "CONFLICT",
+    "finding_subtype": "PARTIAL_CONFLICT",
+    "severity": "MEDIUM",
+    "policy_a": "policy_15.md",
+    "policy_b": "policy_25.md",
+    "description": "Scope-dependent contradiction between policy_15.md and policy_25.md on patch.",
+    "explanation": "policy_15.md applies to all users, policy_25.md to admins only."
+  },
+  {
+    "finding_type": "REDUNDANCY",
+    "finding_subtype": "REDUNDANCY",
+    "severity": "LOW",
+    "policy_a": "policy_13.md",
+    "policy_b": "policy_18.md",
+    "description": "Duplicate or near-duplicate obligations in policy_13.md and policy_18.md.",
+    "explanation": "Both require the same action on encryption."
+  },
+  {
+    "finding_type": "REDUNDANCY",
+    "finding_subtype": "REDUNDANCY",
+    "severity": "LOW",
+    "policy_a": "policy_10.md",
+    "policy_b": "policy_06.md",
+    "description": "Duplicate or near-duplicate obligations in policy_10.md and policy_06.md.",
+    "explanation": "Both require the same action on encryption."
+  },
+  {
+    "finding_type": "REDUNDANCY",
+    "finding_subtype": "REDUNDANCY",
+    "severity": "LOW",
+    "policy_a": "policy_06.md",
+    "policy_b": "policy_13.md",
+    "description": "Duplicate or near-duplicate obligations in policy_06.md and policy_13.md.",
+    "explanation": "Both require the same action on cloud."
+  },
+  {
+    "finding_type": "REDUNDANCY",
+    "finding_subtype": "REDUNDANCY",
+    "severity": "LOW",
+    "policy_a": "policy_01.md",
+    "policy_b": "policy_08.md",
+    "description": "Duplicate or near-duplicate obligations in policy_01.md and policy_08.md.",
+    "explanation": "Both require the same action on change."
+  },
+  {
+    "finding_type": "REDUNDANCY",
+    "finding_subtype": "REDUNDANCY",
+    "severity": "LOW",
+    "policy_a": "policy_26.md",
+    "policy_b": "policy_16.md",
+    "description": "Duplicate or near-duplicate obligations in policy_26.md and policy_16.md.",
+    "explanation": "Both require the same action on endpoint."
+  },
+  {
+    "finding_type": "REDUNDANCY",
+    "finding_subtype": "REDUNDANCY",
+    "severity": "LOW",
+    "policy_a": "policy_21.md",
+    "policy_b": "policy_03.md",
+    "description": "Duplicate or near-duplicate obligations in policy_21.md and policy_03.md.",
+    "explanation": "Both require the same action on asset."
+  },
+  {
+    "finding_type": "REDUNDANCY",
+    "finding_subtype": "REDUNDANCY",
+    "severity": "LOW",
+    "policy_a": "policy_01.md",
+    "policy_b": "policy_06.md",
+    "description": "Duplicate or near-duplicate obligations in policy_01.md and policy_06.md.",
+    "explanation": "Both require the same action on vendor."
+  },
+  {
+    "finding_type": "REDUNDANCY",
+    "finding_subtype": "REDUNDANCY",
+    "severity": "LOW",
+    "policy_a": "policy_01.md",
+    "policy_b": "policy_06.md",
+    "description": "Duplicate or near-duplicate obligations in policy_01.md and policy_06.md.",
+    "explanation": "Both require the same action on backup."
+  },
+  {
+    "finding_type": "REDUNDANCY",
+    "finding_subtype": "REDUNDANCY",
+    "severity": "LOW",
+    "policy_a": "policy_02.md",
+    "policy_b": "policy_11.md",
+    "description": "Duplicate or near-duplicate obligations in policy_02.md and policy_11.md.",
+    "explanation": "Both require the same action on privacy."
+  },
+  {
+    "finding_type": "REDUNDANCY",
+    "finding_subtype": "REDUNDANCY",
+    "severity": "LOW",
+    "policy_a": "policy_28.md",
+    "policy_b": "policy_20.md",
+    "description": "Duplicate or near-duplicate obligations in policy_28.md and policy_20.md.",
+    "explanation": "Both require the same action on monitoring."
+  },
+  {
+    "finding_type": "REDUNDANCY",
+    "finding_subtype": "REDUNDANCY",
+    "severity": "LOW",
+    "policy_a": "policy_12.md",
+    "policy_b": "policy_23.md",
+    "description": "Duplicate or near-duplicate obligations in policy_12.md and policy_23.md.",
+    "explanation": "Both require the same action on third-party."
+  },
+  {
+    "finding_type": "REDUNDANCY",
+    "finding_subtype": "REDUNDANCY",
+    "severity": "LOW",
+    "policy_a": "policy_09.md",
+    "policy_b": "policy_20.md",
+    "description": "Duplicate or near-duplicate obligations in policy_09.md and policy_20.md.",
+    "explanation": "Both require the same action on vendor."
+  },
+  {
+    "finding_type": "REDUNDANCY",
+    "finding_subtype": "REDUNDANCY",
+    "severity": "LOW",
+    "policy_a": "policy_06.md",
+    "policy_b": "policy_12.md",
+    "description": "Duplicate or near-duplicate obligations in policy_06.md and policy_12.md.",
+    "explanation": "Both require the same action on logging."
+  },
+  {
+    "finding_type": "REDUNDANCY",
+    "finding_subtype": "REDUNDANCY",
+    "severity": "LOW",
+    "policy_a": "policy_29.md",
+    "policy_b": "policy_19.md",
+    "description": "Duplicate or near-duplicate obligations in policy_29.md and policy_19.md.",
+    "explanation": "Both require the same action on patch."
+  },
+  {
+    "finding_type": "REDUNDANCY",
+    "finding_subtype": "REDUNDANCY",
+    "severity": "LOW",
+    "policy_a": "policy_20.md",
+    "policy_b": "policy_14.md",
+    "description": "Duplicate or near-duplicate obligations in policy_20.md and policy_14.md.",
+    "explanation": "Both require the same action on change."
+  },
+  {
+    "finding_type": "REDUNDANCY",
+    "finding_subtype": "REDUNDANCY",
+    "severity": "LOW",
+    "policy_a": "policy_18.md",
+    "policy_b": "policy_19.md",
+    "description": "Duplicate or near-duplicate obligations in policy_18.md and policy_19.md.",
+    "explanation": "Both require the same action on asset."
+  },
+  {
+    "finding_type": "REDUNDANCY",
+    "finding_subtype": "REDUNDANCY",
+    "severity": "LOW",
+    "policy_a": "policy_09.md",
+    "policy_b": "policy_11.md",
+    "description": "Duplicate or near-duplicate obligations in policy_09.md and policy_11.md.",
+    "explanation": "Both require the same action on third-party."
+  },
+  {
+    "finding_type": "REDUNDANCY",
+    "finding_subtype": "REDUNDANCY",
+    "severity": "LOW",
+    "policy_a": "policy_08.md",
+    "policy_b": "policy_22.md",
+    "description": "Duplicate or near-duplicate obligations in policy_08.md and policy_22.md.",
+    "explanation": "Both require the same action on endpoint."
+  },
+  {
+    "finding_type": "REDUNDANCY",
+    "finding_subtype": "REDUNDANCY",
+    "severity": "LOW",
+    "policy_a": "policy_28.md",
+    "policy_b": "policy_29.md",
+    "description": "Duplicate or near-duplicate obligations in policy_28.md and policy_29.md.",
+    "explanation": "Both require the same action on network."
+  },
+  {
+    "finding_type": "REDUNDANCY",
+    "finding_subtype": "REDUNDANCY",
+    "severity": "LOW",
+    "policy_a": "policy_15.md",
+    "policy_b": "policy_17.md",
+    "description": "Duplicate or near-duplicate obligations in policy_15.md and policy_17.md.",
+    "explanation": "Both require the same action on monitoring."
+  },
+  {
+    "finding_type": "STALE",
+    "finding_subtype": "STALE_POLICY",
+    "severity": "MEDIUM",
+    "policy": "policy_30.md",
+    "description": "policy_30.md not reviewed in 18+ months.",
+    "explanation": "Last review date is stale."
+  },
+  {
+    "finding_type": "STALE",
+    "finding_subtype": "STALE_POLICY",
+    "severity": "MEDIUM",
+    "policy": "policy_10.md",
+    "description": "policy_10.md not reviewed in 18+ months.",
+    "explanation": "Last review date is stale."
+  },
+  {
+    "finding_type": "STALE",
+    "finding_subtype": "STALE_POLICY",
+    "severity": "MEDIUM",
+    "policy": "policy_25.md",
+    "description": "policy_25.md not reviewed in 18+ months.",
+    "explanation": "Last review date is stale."
+  },
+  {
+    "finding_type": "STALE",
+    "finding_subtype": "STALE_POLICY",
+    "severity": "MEDIUM",
+    "policy": "policy_06.md",
+    "description": "policy_06.md not reviewed in 18+ months.",
+    "explanation": "Last review date is stale."
+  },
+  {
+    "finding_type": "STALE",
+    "finding_subtype": "STALE_POLICY",
+    "severity": "MEDIUM",
+    "policy": "policy_30.md",
+    "description": "policy_30.md not reviewed in 18+ months.",
+    "explanation": "Last review date is stale."
+  },
+  {
+    "finding_type": "STALE",
+    "finding_subtype": "STALE_POLICY",
+    "severity": "MEDIUM",
+    "policy": "policy_24.md",
+    "description": "policy_24.md not reviewed in 18+ months.",
+    "explanation": "Last review date is stale."
+  },
+  {
+    "finding_type": "STALE",
+    "finding_subtype": "STALE_POLICY",
+    "severity": "MEDIUM",
+    "policy": "policy_11.md",
+    "description": "policy_11.md not reviewed in 18+ months.",
+    "explanation": "Last review date is stale."
+  },
+  {
+    "finding_type": "STALE",
+    "finding_subtype": "STALE_POLICY",
+    "severity": "MEDIUM",
+    "policy": "policy_08.md",
+    "description": "policy_08.md not reviewed in 18+ months.",
+    "explanation": "Last review date is stale."
+  },
+  {
+    "finding_type": "STALE",
+    "finding_subtype": "STALE_POLICY",
+    "severity": "MEDIUM",
+    "policy": "policy_18.md",
+    "description": "policy_18.md not reviewed in 18+ months.",
+    "explanation": "Last review date is stale."
+  },
+  {
+    "finding_type": "STALE",
+    "finding_subtype": "STALE_POLICY",
+    "severity": "MEDIUM",
+    "policy": "policy_19.md",
+    "description": "policy_19.md not reviewed in 18+ months.",
+    "explanation": "Last review date is stale."
+  },
+  {
+    "finding_type": "STALE",
+    "finding_subtype": "STALE_POLICY",
+    "severity": "MEDIUM",
+    "policy": "policy_13.md",
+    "description": "policy_13.md not reviewed in 18+ months.",
+    "explanation": "Last review date is stale."
+  },
+  {
+    "finding_type": "STALE",
+    "finding_subtype": "STALE_POLICY",
+    "severity": "MEDIUM",
+    "policy": "policy_06.md",
+    "description": "policy_06.md not reviewed in 18+ months.",
+    "explanation": "Last review date is stale."
+  },
+  {
+    "finding_type": "STALE",
+    "finding_subtype": "STALE_REFERENCE",
+    "severity": "LOW",
+    "policy": "policy_23.md",
+    "description": "policy_23.md references deprecated technology or regulation.",
+    "explanation": "Mentions WEP."
+  },
+  {
+    "finding_type": "STALE",
+    "finding_subtype": "STALE_REFERENCE",
+    "severity": "LOW",
+    "policy": "policy_10.md",
+    "description": "policy_10.md references deprecated technology or regulation.",
+    "explanation": "Mentions SHA-1."
+  },
+  {
+    "finding_type": "STALE",
+    "finding_subtype": "STALE_REFERENCE",
+    "severity": "LOW",
+    "policy": "policy_21.md",
+    "description": "policy_21.md references deprecated technology or regulation.",
+    "explanation": "Mentions TLS 1.0."
+  },
+  {
+    "finding_type": "STALE",
+    "finding_subtype": "STALE_REFERENCE",
+    "severity": "LOW",
+    "policy": "policy_12.md",
+    "description": "policy_12.md references deprecated technology or regulation.",
+    "explanation": "Mentions GDPR 2016."
+  },
+  {
+    "finding_type": "STALE",
+    "finding_subtype": "STALE_REFERENCE",
+    "severity": "LOW",
+    "policy": "policy_18.md",
+    "description": "policy_18.md references deprecated technology or regulation.",
+    "explanation": "Mentions SHA-1."
+  },
+  {
+    "finding_type": "STALE",
+    "finding_subtype": "STALE_REFERENCE",
+    "severity": "LOW",
+    "policy": "policy_16.md",
+    "description": "policy_16.md references deprecated technology or regulation.",
+    "explanation": "Mentions SOX 2002."
+  },
+  {
+    "finding_type": "STALE",
+    "finding_subtype": "STALE_REFERENCE",
+    "severity": "LOW",
+    "policy": "policy_21.md",
+    "description": "policy_21.md references deprecated technology or regulation.",
+    "explanation": "Mentions NIST SP 800-53 Rev 4."
+  },
+  {
+    "finding_type": "STALE",
+    "finding_subtype": "STALE_REFERENCE",
+    "severity": "LOW",
+    "policy": "policy_22.md",
+    "description": "policy_22.md references deprecated technology or regulation.",
+    "explanation": "Mentions TLS 1.0."
+  },
+  {
+    "finding_type": "CONFLICT",
+    "finding_subtype": "FALSE_POSITIVE_PRONE",
+    "severity": "LOW",
+    "policy_a": "policy_22.md",
+    "policy_b": "policy_16.md",
+    "description": "Apparent conflict between policy_22.md and policy_16.md, but different scopes.",
+    "explanation": "Appears conflicting, but applies to different user groups."
+  },
+  {
+    "finding_type": "CONFLICT",
+    "finding_subtype": "FALSE_POSITIVE_PRONE",
+    "severity": "LOW",
+    "policy_a": "policy_13.md",
+    "policy_b": "policy_09.md",
+    "description": "Apparent conflict between policy_13.md and policy_09.md, but different scopes.",
+    "explanation": "Appears conflicting, but applies to different user groups."
+  },
+  {
+    "finding_type": "CONFLICT",
+    "finding_subtype": "FALSE_POSITIVE_PRONE",
+    "severity": "LOW",
+    "policy_a": "policy_16.md",
+    "policy_b": "policy_19.md",
+    "description": "Apparent conflict between policy_16.md and policy_19.md, but different scopes.",
+    "explanation": "Appears conflicting, but applies to different user groups."
+  },
+  {
+    "finding_type": "CONFLICT",
+    "finding_subtype": "FALSE_POSITIVE_PRONE",
+    "severity": "LOW",
+    "policy_a": "policy_28.md",
+    "policy_b": "policy_21.md",
+    "description": "Apparent conflict between policy_28.md and policy_21.md, but different scopes.",
+    "explanation": "Appears conflicting, but applies to different user groups."
+  },
+  {
+    "finding_type": "CONFLICT",
+    "finding_subtype": "FALSE_POSITIVE_PRONE",
+    "severity": "LOW",
+    "policy_a": "policy_19.md",
+    "policy_b": "policy_15.md",
+    "description": "Apparent conflict between policy_19.md and policy_15.md, but different scopes.",
+    "explanation": "Appears conflicting, but applies to different user groups."
+  },
+  {
+    "finding_type": "CONFLICT",
+    "finding_subtype": "FALSE_POSITIVE_PRONE",
+    "severity": "LOW",
+    "policy_a": "policy_02.md",
+    "policy_b": "policy_03.md",
+    "description": "Apparent conflict between policy_02.md and policy_03.md, but different scopes.",
+    "explanation": "Appears conflicting, but applies to different user groups."
+  },
+  {
+    "finding_type": "CONFLICT",
+    "finding_subtype": "FALSE_POSITIVE_PRONE",
+    "severity": "LOW",
+    "policy_a": "policy_11.md",
+    "policy_b": "policy_16.md",
+    "description": "Apparent conflict between policy_11.md and policy_16.md, but different scopes.",
+    "explanation": "Appears conflicting, but applies to different user groups."
+  },
+  {
+    "finding_type": "CONFLICT",
+    "finding_subtype": "FALSE_POSITIVE_PRONE",
+    "severity": "LOW",
+    "policy_a": "policy_21.md",
+    "policy_b": "policy_16.md",
+    "description": "Apparent conflict between policy_21.md and policy_16.md, but different scopes.",
+    "explanation": "Appears conflicting, but applies to different user groups."
+  },
+  {
+    "finding_type": "CONFLICT",
+    "finding_subtype": "FALSE_POSITIVE_PRONE",
+    "severity": "LOW",
+    "policy_a": "policy_02.md",
+    "policy_b": "policy_21.md",
+    "description": "Apparent conflict between policy_02.md and policy_21.md, but different scopes.",
+    "explanation": "Appears conflicting, but applies to different user groups."
+  },
+  {
+    "finding_type": "CONFLICT",
+    "finding_subtype": "FALSE_POSITIVE_PRONE",
+    "severity": "LOW",
+    "policy_a": "policy_05.md",
+    "policy_b": "policy_01.md",
+    "description": "Apparent conflict between policy_05.md and policy_01.md, but different scopes.",
+    "explanation": "Appears conflicting, but applies to different user groups."
+  },
+  {
+    "finding_type": "CONFLICT",
+    "finding_subtype": "FALSE_POSITIVE_PRONE",
+    "severity": "LOW",
+    "policy_a": "policy_09.md",
+    "policy_b": "policy_18.md",
+    "description": "Apparent conflict between policy_09.md and policy_18.md, but different scopes.",
+    "explanation": "Appears conflicting, but applies to different user groups."
+  },
+  {
+    "finding_type": "CONFLICT",
+    "finding_subtype": "FALSE_POSITIVE_PRONE",
+    "severity": "LOW",
+    "policy_a": "policy_15.md",
+    "policy_b": "policy_02.md",
+    "description": "Apparent conflict between policy_15.md and policy_02.md, but different scopes.",
+    "explanation": "Appears conflicting, but applies to different user groups."
+  },
+  {
+    "finding_type": "CONFLICT",
+    "finding_subtype": "FALSE_POSITIVE_PRONE",
+    "severity": "LOW",
+    "policy_a": "policy_03.md",
+    "policy_b": "policy_09.md",
+    "description": "Apparent conflict between policy_03.md and policy_09.md, but different scopes.",
+    "explanation": "Appears conflicting, but applies to different user groups."
+  },
+  {
+    "finding_type": "CONFLICT",
+    "finding_subtype": "FALSE_POSITIVE_PRONE",
+    "severity": "LOW",
+    "policy_a": "policy_26.md",
+    "policy_b": "policy_02.md",
+    "description": "Apparent conflict between policy_26.md and policy_02.md, but different scopes.",
+    "explanation": "Appears conflicting, but applies to different user groups."
+  },
+  {
+    "finding_type": "CONFLICT",
+    "finding_subtype": "FALSE_POSITIVE_PRONE",
+    "severity": "LOW",
+    "policy_a": "policy_08.md",
+    "policy_b": "policy_19.md",
+    "description": "Apparent conflict between policy_08.md and policy_19.md, but different scopes.",
+    "explanation": "Appears conflicting, but applies to different user groups."
+  }
+]

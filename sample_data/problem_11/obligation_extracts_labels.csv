@@ -1,0 +1,351 @@
+policy_file,obligation_text,topic,strength,scope
+policy_01.md,Contractors must backup.,backup,must,contractors
+policy_02.md,Developers prohibited asset.,asset,prohibited,developers
+policy_03.md,Developers recommended mobile.,mobile,recommended,developers
+policy_04.md,Admins must backup.,backup,must,admins
+policy_05.md,Admins required backup.,backup,required,admins
+policy_06.md,Employees shall third-party.,third-party,shall,employees
+policy_07.md,Contractors shall encryption.,encryption,shall,contractors
+policy_08.md,All Users prohibited mobile.,mobile,prohibited,all users
+policy_09.md,Developers shall monitoring.,monitoring,shall,developers
+policy_10.md,All Users must cloud.,cloud,must,all users
+policy_11.md,Admins required vendor.,vendor,required,admins
+policy_12.md,Admins required logging.,logging,required,admins
+policy_13.md,Contractors shall network.,network,shall,contractors
+policy_14.md,Employees required cloud.,cloud,required,employees
+policy_15.md,Contractors recommended provisioning.,provisioning,recommended,contractors
+policy_16.md,Developers recommended mobile.,mobile,recommended,developers
+policy_17.md,Employees should patch.,patch,should,employees
+policy_18.md,Employees recommended network.,network,recommended,employees
+policy_19.md,All Users recommended api.,api,recommended,all users
+policy_20.md,Developers prohibited access. (Reference: NIST SP 800-53 Rev 4),access,prohibited,developers
+policy_21.md,Contractors should endpoint.,endpoint,should,contractors
+policy_22.md,All Users should change.,change,should,all users
+policy_23.md,Employees shall cloud.,cloud,shall,employees
+policy_24.md,Employees must monitoring.,monitoring,must,employees
+policy_25.md,Developers must logging.,logging,must,developers
+policy_26.md,All Users prohibited patch.,patch,prohibited,all users
+policy_27.md,Employees must third-party. (Reference: GDPR 2016),third-party,must,employees
+policy_28.md,Admins recommended vendor.,vendor,recommended,admins
+policy_29.md,Developers required provisioning.,provisioning,required,developers
+policy_30.md,Developers recommended api.,api,recommended,developers
+policy_01.md,Developers shall monitoring.,monitoring,shall,developers
+policy_02.md,Developers must network.,network,must,developers
+policy_03.md,Contractors should asset.,asset,should,contractors
+policy_04.md,Admins required HR.,HR,required,admins
+policy_05.md,Admins should patch.,patch,should,admins
+policy_06.md,All Users should cloud.,cloud,should,all users
+policy_07.md,Employees required network.,network,required,employees
+policy_08.md,Admins prohibited endpoint.,endpoint,prohibited,admins
+policy_09.md,All Users must privacy. (Reference: WEP),privacy,must,all users
+policy_10.md,Employees should monitoring.,monitoring,should,employees
+policy_11.md,Admins required encryption. (Reference: DES),encryption,required,admins
+policy_12.md,Developers required provisioning.,provisioning,required,developers
+policy_13.md,Employees should api.,api,should,employees
+policy_14.md,Admins shall HR.,HR,shall,admins
+policy_15.md,All Users prohibited endpoint.,endpoint,prohibited,all users
+policy_16.md,Employees required asset.,asset,required,employees
+policy_17.md,Admins shall encryption.,encryption,shall,admins
+policy_18.md,Employees shall endpoint.,endpoint,shall,employees
+policy_19.md,All Users recommended provisioning. (Reference: DES),provisioning,recommended,all users
+policy_20.md,Admins must logging.,logging,must,admins
+policy_21.md,All Users prohibited third-party.,third-party,prohibited,all users
+policy_22.md,Contractors shall endpoint.,endpoint,shall,contractors
+policy_23.md,Admins shall monitoring.,monitoring,shall,admins
+policy_24.md,Contractors required HR.,HR,required,contractors
+policy_25.md,All Users shall endpoint.,endpoint,shall,all users
+policy_26.md,All Users recommended patch.,patch,recommended,all users
+policy_27.md,Developers recommended patch.,patch,recommended,developers
+policy_28.md,Admins prohibited network.,network,prohibited,admins
+policy_29.md,Admins prohibited cloud.,cloud,prohibited,admins
+policy_30.md,Contractors prohibited cloud.,cloud,prohibited,contractors
+policy_01.md,Admins shall monitoring.,monitoring,shall,admins
+policy_02.md,Admins should cloud.,cloud,should,admins
+policy_03.md,Admins prohibited third-party.,third-party,prohibited,admins
+policy_04.md,Employees prohibited network.,network,prohibited,employees
+policy_05.md,All Users must change.,change,must,all users
+policy_06.md,Developers required mobile. (Reference: Windows Server 2012),mobile,required,developers
+policy_07.md,Developers prohibited provisioning.,provisioning,prohibited,developers
+policy_08.md,All Users required cloud.,cloud,required,all users
+policy_09.md,Contractors recommended logging.,logging,recommended,contractors
+policy_10.md,All Users recommended HR. (Reference: FTP),HR,recommended,all users
+policy_11.md,Admins must asset.,asset,must,admins
+policy_12.md,All Users recommended provisioning.,provisioning,recommended,all users
+policy_13.md,Admins shall endpoint. (Reference: DES),endpoint,shall,admins
+policy_14.md,Employees must logging.,logging,must,employees
+policy_15.md,Developers prohibited change.,change,prohibited,developers
+policy_16.md,Developers recommended provisioning.,provisioning,recommended,developers
+policy_17.md,Admins recommended asset.,asset,recommended,admins
+policy_18.md,Developers required cloud.,cloud,required,developers
+policy_19.md,Admins shall physical.,physical,shall,admins
+policy_20.md,All Users shall mobile.,mobile,shall,all users
+policy_21.md,Employees should mobile.,mobile,should,employees
+policy_22.md,Admins recommended password.,password,recommended,admins
+policy_23.md,All Users recommended backup.,backup,recommended,all users
+policy_24.md,Contractors should cloud.,cloud,should,contractors
+policy_25.md,Contractors shall mobile. (Reference: FTP),mobile,shall,contractors
+policy_26.md,Admins must third-party.,third-party,must,admins
+policy_27.md,Admins required vendor.,vendor,required,admins
+policy_28.md,Admins shall HR.,HR,shall,admins
+policy_29.md,Employees required network.,network,required,employees
+policy_30.md,Employees prohibited vendor.,vendor,prohibited,employees
+policy_01.md,Developers recommended privacy.,privacy,recommended,developers
+policy_02.md,All Users prohibited password.,password,prohibited,all users
+policy_03.md,Contractors prohibited access. (Reference: DES),access,prohibited,contractors
+policy_04.md,Contractors prohibited backup.,backup,prohibited,contractors
+policy_05.md,All Users must access.,access,must,all users
+policy_06.md,Contractors should mobile.,mobile,should,contractors
+policy_07.md,Admins recommended network.,network,recommended,admins
+policy_08.md,All Users required vendor.,vendor,required,all users
+policy_09.md,All Users must cloud.,cloud,must,all users
+policy_10.md,Admins should change. (Reference: FTP),change,should,admins
+policy_11.md,Admins prohibited asset. (Reference: DES),asset,prohibited,admins
+policy_12.md,Admins required privacy.,privacy,required,admins
+policy_13.md,Developers shall password.,password,shall,developers
+policy_14.md,Employees required HR.,HR,required,employees
+policy_15.md,Admins should password. (Reference: SOX 2002),password,should,admins
+policy_16.md,Developers must monitoring.,monitoring,must,developers
+policy_17.md,Contractors required vendor. (Reference: WEP),vendor,required,contractors
+policy_18.md,Admins recommended cloud.,cloud,recommended,admins
+policy_19.md,Employees shall cloud.,cloud,shall,employees
+policy_20.md,Contractors should third-party.,third-party,should,contractors
+policy_21.md,Developers required backup.,backup,required,developers
+policy_22.md,Contractors shall api.,api,shall,contractors
+policy_23.md,Employees should network.,network,should,employees
+policy_24.md,Contractors must access. (Reference: WEP),access,must,contractors
+policy_25.md,Employees must third-party.,third-party,must,employees
+policy_26.md,All Users prohibited change.,change,prohibited,all users
+policy_27.md,Admins should physical.,physical,should,admins
+policy_28.md,Contractors required api.,api,required,contractors
+policy_29.md,Contractors shall vendor.,vendor,shall,contractors
+policy_30.md,Employees should cloud.,cloud,should,employees
+policy_01.md,Employees recommended change.,change,recommended,employees
+policy_02.md,Employees shall privacy.,privacy,shall,employees
+policy_03.md,Contractors recommended endpoint.,endpoint,recommended,contractors
+policy_04.md,Admins must network.,network,must,admins
+policy_05.md,Contractors required logging.,logging,required,contractors
+policy_06.md,Admins recommended api.,api,recommended,admins
+policy_07.md,Employees must logging.,logging,must,employees
+policy_08.md,Employees must data retention.,data retention,must,employees
+policy_09.md,Admins must monitoring.,monitoring,must,admins
+policy_10.md,Admins should password.,password,should,admins
+policy_11.md,Admins required access.,access,required,admins
+policy_12.md,Employees required api.,api,required,employees
+policy_13.md,Employees prohibited endpoint.,endpoint,prohibited,employees
+policy_14.md,Employees recommended physical.,physical,recommended,employees
+policy_15.md,Employees prohibited logging.,logging,prohibited,employees
+policy_16.md,Admins required monitoring.,monitoring,required,admins
+policy_17.md,All Users required logging.,logging,required,all users
+policy_18.md,Contractors shall patch.,patch,shall,contractors
+policy_19.md,Employees required privacy. (Reference: DES),privacy,required,employees
+policy_20.md,All Users should privacy.,privacy,should,all users
+policy_21.md,All Users required password. (Reference: SHA-1),password,required,all users
+policy_22.md,Admins prohibited cloud. (Reference: DES),cloud,prohibited,admins
+policy_23.md,All Users should physical.,physical,should,all users
+policy_24.md,Developers recommended endpoint.,endpoint,recommended,developers
+policy_25.md,Employees required cloud.,cloud,required,employees
+policy_26.md,All Users should asset.,asset,should,all users
+policy_27.md,Developers shall password. (Reference: Windows Server 2012),password,shall,developers
+policy_28.md,Contractors should password. (Reference: SHA-1),password,should,contractors
+policy_29.md,All Users required access.,access,required,all users
+policy_30.md,Admins shall privacy.,privacy,shall,admins
+policy_01.md,All Users recommended monitoring.,monitoring,recommended,all users
+policy_02.md,Admins prohibited third-party.,third-party,prohibited,admins
+policy_03.md,All Users must endpoint.,endpoint,must,all users
+policy_04.md,Admins required HR.,HR,required,admins
+policy_05.md,Contractors recommended provisioning.,provisioning,recommended,contractors
+policy_06.md,Admins recommended mobile.,mobile,recommended,admins
+policy_07.md,Contractors must privacy.,privacy,must,contractors
+policy_08.md,Employees required privacy.,privacy,required,employees
+policy_09.md,Employees must cloud.,cloud,must,employees
+policy_10.md,Contractors shall cloud. (Reference: Windows Server 2012),cloud,shall,contractors
+policy_11.md,All Users prohibited network. (Reference: GDPR 2016),network,prohibited,all users
+policy_12.md,Developers required data retention.,data retention,required,developers
+policy_13.md,Employees must cloud.,cloud,must,employees
+policy_14.md,Developers must patch.,patch,must,developers
+policy_15.md,Employees prohibited change.,change,prohibited,employees
+policy_16.md,All Users required network.,network,required,all users
+policy_17.md,Contractors shall vendor.,vendor,shall,contractors
+policy_18.md,Admins shall password.,password,shall,admins
+policy_19.md,Developers shall encryption.,encryption,shall,developers
+policy_20.md,Admins recommended asset.,asset,recommended,admins
+policy_21.md,All Users must patch.,patch,must,all users
+policy_22.md,Admins prohibited asset.,asset,prohibited,admins
+policy_23.md,Employees should physical.,physical,should,employees
+policy_24.md,All Users should monitoring.,monitoring,should,all users
+policy_25.md,Admins should encryption.,encryption,should,admins
+policy_26.md,Developers must patch. (Reference: DES),patch,must,developers
+policy_27.md,Contractors required asset.,asset,required,contractors
+policy_28.md,Admins shall vendor.,vendor,shall,admins
+policy_29.md,Employees must physical.,physical,must,employees
+policy_30.md,Employees must third-party.,third-party,must,employees
+policy_01.md,All Users shall api.,api,shall,all users
+policy_02.md,Contractors required provisioning. (Reference: SOX 2002),provisioning,required,contractors
+policy_03.md,Developers required vendor.,vendor,required,developers
+policy_04.md,Developers shall asset. (Reference: FTP),asset,shall,developers
+policy_05.md,Employees recommended privacy. (Reference: GDPR 2016),privacy,recommended,employees
+policy_06.md,Admins must HR.,HR,must,admins
+policy_07.md,Employees must monitoring.,monitoring,must,employees
+policy_08.md,Contractors must network. (Reference: SHA-1),network,must,contractors
+policy_09.md,Admins must backup.,backup,must,admins
+policy_10.md,Developers must physical.,physical,must,developers
+policy_11.md,All Users must third-party.,third-party,must,all users
+policy_12.md,Contractors should cloud.,cloud,should,contractors
+policy_13.md,Admins should cloud.,cloud,should,admins
+policy_14.md,Contractors recommended vendor.,vendor,recommended,contractors
+policy_15.md,Developers recommended privacy.,privacy,recommended,developers
+policy_16.md,Employees shall cloud.,cloud,shall,employees
+policy_17.md,All Users prohibited patch.,patch,prohibited,all users
+policy_18.md,Contractors required data retention.,data retention,required,contractors
+policy_19.md,Employees required mobile. (Reference: SHA-1),mobile,required,employees
+policy_20.md,Admins required mobile.,mobile,required,admins
+policy_21.md,Contractors recommended access.,access,recommended,contractors
+policy_22.md,Contractors prohibited endpoint.,endpoint,prohibited,contractors
+policy_23.md,All Users must provisioning.,provisioning,must,all users
+policy_24.md,Admins shall change.,change,shall,admins
+policy_25.md,Contractors must backup.,backup,must,contractors
+policy_26.md,Admins recommended access.,access,recommended,admins
+policy_27.md,Employees prohibited third-party.,third-party,prohibited,employees
+policy_28.md,Admins shall endpoint.,endpoint,shall,admins
+policy_29.md,Contractors prohibited mobile.,mobile,prohibited,contractors
+policy_30.md,Contractors recommended asset.,asset,recommended,contractors
+policy_01.md,Developers recommended password.,password,recommended,developers
+policy_02.md,Employees required change.,change,required,employees
+policy_03.md,Admins prohibited privacy.,privacy,prohibited,admins
+policy_04.md,All Users should data retention.,data retention,should,all users
+policy_05.md,Employees prohibited data retention. (Reference: Windows Server 2012),data retention,prohibited,employees
+policy_06.md,Developers recommended password.,password,recommended,developers
+policy_07.md,Employees must mobile.,mobile,must,employees
+policy_08.md,Admins shall mobile.,mobile,shall,admins
+policy_09.md,Developers recommended third-party. (Reference: TLS 1.0),third-party,recommended,developers
+policy_10.md,Employees prohibited physical.,physical,prohibited,employees
+policy_11.md,All Users must data retention.,data retention,must,all users
+policy_12.md,Employees prohibited api.,api,prohibited,employees
+policy_13.md,Admins shall patch.,patch,shall,admins
+policy_14.md,Admins should logging. (Reference: NIST SP 800-53 Rev 4),logging,should,admins
+policy_15.md,Developers recommended network.,network,recommended,developers
+policy_16.md,Admins recommended privacy.,privacy,recommended,admins
+policy_17.md,Admins prohibited data retention.,data retention,prohibited,admins
+policy_18.md,All Users required mobile. (Reference: DES),mobile,required,all users
+policy_19.md,All Users must monitoring.,monitoring,must,all users
+policy_20.md,All Users should provisioning. (Reference: WEP),provisioning,should,all users
+policy_21.md,Developers should access.,access,should,developers
+policy_22.md,Employees shall mobile.,mobile,shall,employees
+policy_23.md,Employees must asset.,asset,must,employees
+policy_24.md,All Users should network.,network,should,all users
+policy_25.md,Employees should data retention.,data retention,should,employees
+policy_26.md,Employees should patch.,patch,should,employees
+policy_27.md,All Users recommended endpoint.,endpoint,recommended,all users
+policy_28.md,Employees shall password.,password,shall,employees
+policy_29.md,Admins recommended data retention.,data retention,recommended,admins
+policy_30.md,All Users should provisioning.,provisioning,should,all users
+policy_01.md,Developers required third-party.,third-party,required,developers
+policy_02.md,Admins prohibited encryption.,encryption,prohibited,admins
+policy_03.md,Developers required cloud. (Reference: GDPR 2016),cloud,required,developers
+policy_04.md,Developers shall third-party.,third-party,shall,developers
+policy_05.md,All Users should patch.,patch,should,all users
+policy_06.md,Developers required backup.,backup,required,developers
+policy_07.md,Admins must mobile.,mobile,must,admins
+policy_08.md,Admins required physical.,physical,required,admins
+policy_09.md,Contractors must data retention.,data retention,must,contractors
+policy_10.md,Developers shall encryption.,encryption,shall,developers
+policy_11.md,Employees prohibited vendor.,vendor,prohibited,employees
+policy_12.md,Contractors must mobile.,mobile,must,contractors
+policy_13.md,Developers should HR.,HR,should,developers
+policy_14.md,Admins required password.,password,required,admins
+policy_15.md,Developers must data retention.,data retention,must,developers
+policy_16.md,Developers required HR.,HR,required,developers
+policy_17.md,Developers shall backup.,backup,shall,developers
+policy_18.md,Employees required encryption.,encryption,required,employees
+policy_19.md,All Users required provisioning.,provisioning,required,all users
+policy_20.md,Developers required cloud.,cloud,required,developers
+policy_21.md,Contractors recommended change.,change,recommended,contractors
+policy_22.md,All Users should backup. (Reference: GDPR 2016),backup,should,all users
+policy_23.md,Contractors must vendor.,vendor,must,contractors
+policy_24.md,Contractors required logging. (Reference: NIST SP 800-53 Rev 4),logging,required,contractors
+policy_25.md,All Users should physical.,physical,should,all users
+policy_26.md,All Users recommended vendor.,vendor,recommended,all users
+policy_27.md,Developers should cloud. (Reference: GDPR 2016),cloud,should,developers
+policy_28.md,All Users recommended vendor.,vendor,recommended,all users
+policy_29.md,Employees prohibited access.,access,prohibited,employees
+policy_30.md,Admins recommended asset.,asset,recommended,admins
+policy_01.md,All Users required asset.,asset,required,all users
+policy_02.md,Developers recommended mobile.,mobile,recommended,developers
+policy_03.md,Contractors prohibited data retention.,data retention,prohibited,contractors
+policy_04.md,All Users should api.,api,should,all users
+policy_05.md,Admins must cloud.,cloud,must,admins
+policy_06.md,Employees must logging.,logging,must,employees
+policy_07.md,All Users prohibited third-party.,third-party,prohibited,all users
+policy_08.md,Admins shall physical.,physical,shall,admins
+policy_09.md,Admins should physical. (Reference: NIST SP 800-53 Rev 4),physical,should,admins
+policy_10.md,Employees required patch. (Reference: SOX 2002),patch,required,employees
+policy_11.md,Developers prohibited mobile.,mobile,prohibited,developers
+policy_12.md,Developers prohibited physical.,physical,prohibited,developers
+policy_13.md,Developers required asset.,asset,required,developers
+policy_14.md,All Users required physical.,physical,required,all users
+policy_15.md,Contractors recommended HR.,HR,recommended,contractors
+policy_16.md,All Users should change.,change,should,all users
+policy_17.md,Admins required access.,access,required,admins
+policy_18.md,Developers prohibited cloud. (Reference: FTP),cloud,prohibited,developers
+policy_19.md,Admins prohibited provisioning.,provisioning,prohibited,admins
+policy_20.md,Developers shall HR. (Reference: SHA-1),HR,shall,developers
+policy_21.md,Contractors recommended encryption.,encryption,recommended,contractors
+policy_22.md,Contractors prohibited monitoring.,monitoring,prohibited,contractors
+policy_23.md,Contractors required asset. (Reference: NIST SP 800-53 Rev 4),asset,required,contractors
+policy_24.md,Developers should cloud.,cloud,should,developers
+policy_25.md,Developers shall network.,network,shall,developers
+policy_26.md,Contractors recommended mobile.,mobile,recommended,contractors
+policy_27.md,Contractors should backup. (Reference: SHA-1),backup,should,contractors
+policy_28.md,Contractors required monitoring.,monitoring,required,contractors
+policy_29.md,Contractors shall monitoring.,monitoring,shall,contractors
+policy_30.md,Contractors must privacy.,privacy,must,contractors
+policy_01.md,Admins shall provisioning.,provisioning,shall,admins
+policy_02.md,Developers shall monitoring. (Reference: NIST SP 800-53 Rev 4),monitoring,shall,developers
+policy_03.md,Developers recommended monitoring.,monitoring,recommended,developers
+policy_04.md,All Users required privacy.,privacy,required,all users
+policy_05.md,Developers recommended mobile.,mobile,recommended,developers
+policy_06.md,Contractors recommended asset.,asset,recommended,contractors
+policy_07.md,Developers recommended cloud.,cloud,recommended,developers
+policy_08.md,All Users shall mobile.,mobile,shall,all users
+policy_09.md,All Users should data retention.,data retention,should,all users
+policy_10.md,Developers must password.,password,must,developers
+policy_11.md,Contractors required cloud.,cloud,required,contractors
+policy_12.md,All Users must logging.,logging,must,all users
+policy_13.md,Employees should change.,change,should,employees
+policy_14.md,All Users should provisioning.,provisioning,should,all users
+policy_15.md,Developers must network.,network,must,developers
+policy_16.md,Employees prohibited endpoint.,endpoint,prohibited,employees
+policy_17.md,Employees prohibited data retention.,data retention,prohibited,employees
+policy_18.md,Admins recommended access. (Reference: SOX 2002),access,recommended,admins
+policy_19.md,Contractors shall access.,access,shall,contractors
+policy_20.md,Contractors recommended HR.,HR,recommended,contractors
+policy_21.md,Admins shall monitoring.,monitoring,shall,admins
+policy_22.md,Admins should password.,password,should,admins
+policy_23.md,Developers should patch.,patch,should,developers
+policy_24.md,Developers must network.,network,must,developers
+policy_25.md,All Users must encryption.,encryption,must,all users
+policy_26.md,Admins must backup. (Reference: SOX 2002),backup,must,admins
+policy_27.md,Developers should endpoint.,endpoint,should,developers
+policy_28.md,Contractors must access. (Reference: GDPR 2016),access,must,contractors
+policy_29.md,Contractors prohibited HR.,HR,prohibited,contractors
+policy_30.md,All Users prohibited mobile.,mobile,prohibited,all users
+policy_01.md,All Users required HR.,HR,required,all users
+policy_02.md,Contractors recommended provisioning.,provisioning,recommended,contractors
+policy_03.md,Employees prohibited mobile.,mobile,prohibited,employees
+policy_04.md,Employees shall change.,change,shall,employees
+policy_05.md,Admins prohibited privacy.,privacy,prohibited,admins
+policy_06.md,Employees shall vendor.,vendor,shall,employees
+policy_07.md,Developers required endpoint.,endpoint,required,developers
+policy_08.md,All Users should privacy.,privacy,should,all users
+policy_09.md,Contractors must HR.,HR,must,contractors
+policy_10.md,All Users recommended cloud.,cloud,recommended,all users
+policy_11.md,All Users must monitoring.,monitoring,must,all users
+policy_12.md,Admins shall provisioning.,provisioning,shall,admins
+policy_13.md,Employees should change.,change,should,employees
+policy_14.md,All Users must mobile.,mobile,must,all users
+policy_15.md,Admins shall physical.,physical,shall,admins
+policy_16.md,Employees required HR.,HR,required,employees
+policy_17.md,Developers should backup.,backup,should,developers
+policy_18.md,All Users prohibited access. (Reference: TLS 1.0),access,prohibited,all users
+policy_19.md,Employees shall change. (Reference: FTP),change,shall,employees
+policy_20.md,Contractors required HR.,HR,required,contractors

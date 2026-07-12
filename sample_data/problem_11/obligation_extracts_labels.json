@@ -1,0 +1,2452 @@
+[
+  {
+    "policy_file": "policy_01.md",
+    "obligation_text": "Contractors must backup.",
+    "topic": "backup",
+    "strength": "must",
+    "scope": "contractors"
+  },
+  {
+    "policy_file": "policy_02.md",
+    "obligation_text": "Developers prohibited asset.",
+    "topic": "asset",
+    "strength": "prohibited",
+    "scope": "developers"
+  },
+  {
+    "policy_file": "policy_03.md",
+    "obligation_text": "Developers recommended mobile.",
+    "topic": "mobile",
+    "strength": "recommended",
+    "scope": "developers"
+  },
+  {
+    "policy_file": "policy_04.md",
+    "obligation_text": "Admins must backup.",
+    "topic": "backup",
+    "strength": "must",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_05.md",
+    "obligation_text": "Admins required backup.",
+    "topic": "backup",
+    "strength": "required",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_06.md",
+    "obligation_text": "Employees shall third-party.",
+    "topic": "third-party",
+    "strength": "shall",
+    "scope": "employees"
+  },
+  {
+    "policy_file": "policy_07.md",
+    "obligation_text": "Contractors shall encryption.",
+    "topic": "encryption",
+    "strength": "shall",
+    "scope": "contractors"
+  },
+  {
+    "policy_file": "policy_08.md",
+    "obligation_text": "All Users prohibited mobile.",
+    "topic": "mobile",
+    "strength": "prohibited",
+    "scope": "all users"
+  },
+  {
+    "policy_file": "policy_09.md",
+    "obligation_text": "Developers shall monitoring.",
+    "topic": "monitoring",
+    "strength": "shall",
+    "scope": "developers"
+  },
+  {
+    "policy_file": "policy_10.md",
+    "obligation_text": "All Users must cloud.",
+    "topic": "cloud",
+    "strength": "must",
+    "scope": "all users"
+  },
+  {
+    "policy_file": "policy_11.md",
+    "obligation_text": "Admins required vendor.",
+    "topic": "vendor",
+    "strength": "required",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_12.md",
+    "obligation_text": "Admins required logging.",
+    "topic": "logging",
+    "strength": "required",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_13.md",
+    "obligation_text": "Contractors shall network.",
+    "topic": "network",
+    "strength": "shall",
+    "scope": "contractors"
+  },
+  {
+    "policy_file": "policy_14.md",
+    "obligation_text": "Employees required cloud.",
+    "topic": "cloud",
+    "strength": "required",
+    "scope": "employees"
+  },
+  {
+    "policy_file": "policy_15.md",
+    "obligation_text": "Contractors recommended provisioning.",
+    "topic": "provisioning",
+    "strength": "recommended",
+    "scope": "contractors"
+  },
+  {
+    "policy_file": "policy_16.md",
+    "obligation_text": "Developers recommended mobile.",
+    "topic": "mobile",
+    "strength": "recommended",
+    "scope": "developers"
+  },
+  {
+    "policy_file": "policy_17.md",
+    "obligation_text": "Employees should patch.",
+    "topic": "patch",
+    "strength": "should",
+    "scope": "employees"
+  },
+  {
+    "policy_file": "policy_18.md",
+    "obligation_text": "Employees recommended network.",
+    "topic": "network",
+    "strength": "recommended",
+    "scope": "employees"
+  },
+  {
+    "policy_file": "policy_19.md",
+    "obligation_text": "All Users recommended api.",
+    "topic": "api",
+    "strength": "recommended",
+    "scope": "all users"
+  },
+  {
+    "policy_file": "policy_20.md",
+    "obligation_text": "Developers prohibited access. (Reference: NIST SP 800-53 Rev 4)",
+    "topic": "access",
+    "strength": "prohibited",
+    "scope": "developers"
+  },
+  {
+    "policy_file": "policy_21.md",
+    "obligation_text": "Contractors should endpoint.",
+    "topic": "endpoint",
+    "strength": "should",
+    "scope": "contractors"
+  },
+  {
+    "policy_file": "policy_22.md",
+    "obligation_text": "All Users should change.",
+    "topic": "change",
+    "strength": "should",
+    "scope": "all users"
+  },
+  {
+    "policy_file": "policy_23.md",
+    "obligation_text": "Employees shall cloud.",
+    "topic": "cloud",
+    "strength": "shall",
+    "scope": "employees"
+  },
+  {
+    "policy_file": "policy_24.md",
+    "obligation_text": "Employees must monitoring.",
+    "topic": "monitoring",
+    "strength": "must",
+    "scope": "employees"
+  },
+  {
+    "policy_file": "policy_25.md",
+    "obligation_text": "Developers must logging.",
+    "topic": "logging",
+    "strength": "must",
+    "scope": "developers"
+  },
+  {
+    "policy_file": "policy_26.md",
+    "obligation_text": "All Users prohibited patch.",
+    "topic": "patch",
+    "strength": "prohibited",
+    "scope": "all users"
+  },
+  {
+    "policy_file": "policy_27.md",
+    "obligation_text": "Employees must third-party. (Reference: GDPR 2016)",
+    "topic": "third-party",
+    "strength": "must",
+    "scope": "employees"
+  },
+  {
+    "policy_file": "policy_28.md",
+    "obligation_text": "Admins recommended vendor.",
+    "topic": "vendor",
+    "strength": "recommended",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_29.md",
+    "obligation_text": "Developers required provisioning.",
+    "topic": "provisioning",
+    "strength": "required",
+    "scope": "developers"
+  },
+  {
+    "policy_file": "policy_30.md",
+    "obligation_text": "Developers recommended api.",
+    "topic": "api",
+    "strength": "recommended",
+    "scope": "developers"
+  },
+  {
+    "policy_file": "policy_01.md",
+    "obligation_text": "Developers shall monitoring.",
+    "topic": "monitoring",
+    "strength": "shall",
+    "scope": "developers"
+  },
+  {
+    "policy_file": "policy_02.md",
+    "obligation_text": "Developers must network.",
+    "topic": "network",
+    "strength": "must",
+    "scope": "developers"
+  },
+  {
+    "policy_file": "policy_03.md",
+    "obligation_text": "Contractors should asset.",
+    "topic": "asset",
+    "strength": "should",
+    "scope": "contractors"
+  },
+  {
+    "policy_file": "policy_04.md",
+    "obligation_text": "Admins required HR.",
+    "topic": "HR",
+    "strength": "required",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_05.md",
+    "obligation_text": "Admins should patch.",
+    "topic": "patch",
+    "strength": "should",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_06.md",
+    "obligation_text": "All Users should cloud.",
+    "topic": "cloud",
+    "strength": "should",
+    "scope": "all users"
+  },
+  {
+    "policy_file": "policy_07.md",
+    "obligation_text": "Employees required network.",
+    "topic": "network",
+    "strength": "required",
+    "scope": "employees"
+  },
+  {
+    "policy_file": "policy_08.md",
+    "obligation_text": "Admins prohibited endpoint.",
+    "topic": "endpoint",
+    "strength": "prohibited",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_09.md",
+    "obligation_text": "All Users must privacy. (Reference: WEP)",
+    "topic": "privacy",
+    "strength": "must",
+    "scope": "all users"
+  },
+  {
+    "policy_file": "policy_10.md",
+    "obligation_text": "Employees should monitoring.",
+    "topic": "monitoring",
+    "strength": "should",
+    "scope": "employees"
+  },
+  {
+    "policy_file": "policy_11.md",
+    "obligation_text": "Admins required encryption. (Reference: DES)",
+    "topic": "encryption",
+    "strength": "required",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_12.md",
+    "obligation_text": "Developers required provisioning.",
+    "topic": "provisioning",
+    "strength": "required",
+    "scope": "developers"
+  },
+  {
+    "policy_file": "policy_13.md",
+    "obligation_text": "Employees should api.",
+    "topic": "api",
+    "strength": "should",
+    "scope": "employees"
+  },
+  {
+    "policy_file": "policy_14.md",
+    "obligation_text": "Admins shall HR.",
+    "topic": "HR",
+    "strength": "shall",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_15.md",
+    "obligation_text": "All Users prohibited endpoint.",
+    "topic": "endpoint",
+    "strength": "prohibited",
+    "scope": "all users"
+  },
+  {
+    "policy_file": "policy_16.md",
+    "obligation_text": "Employees required asset.",
+    "topic": "asset",
+    "strength": "required",
+    "scope": "employees"
+  },
+  {
+    "policy_file": "policy_17.md",
+    "obligation_text": "Admins shall encryption.",
+    "topic": "encryption",
+    "strength": "shall",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_18.md",
+    "obligation_text": "Employees shall endpoint.",
+    "topic": "endpoint",
+    "strength": "shall",
+    "scope": "employees"
+  },
+  {
+    "policy_file": "policy_19.md",
+    "obligation_text": "All Users recommended provisioning. (Reference: DES)",
+    "topic": "provisioning",
+    "strength": "recommended",
+    "scope": "all users"
+  },
+  {
+    "policy_file": "policy_20.md",
+    "obligation_text": "Admins must logging.",
+    "topic": "logging",
+    "strength": "must",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_21.md",
+    "obligation_text": "All Users prohibited third-party.",
+    "topic": "third-party",
+    "strength": "prohibited",
+    "scope": "all users"
+  },
+  {
+    "policy_file": "policy_22.md",
+    "obligation_text": "Contractors shall endpoint.",
+    "topic": "endpoint",
+    "strength": "shall",
+    "scope": "contractors"
+  },
+  {
+    "policy_file": "policy_23.md",
+    "obligation_text": "Admins shall monitoring.",
+    "topic": "monitoring",
+    "strength": "shall",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_24.md",
+    "obligation_text": "Contractors required HR.",
+    "topic": "HR",
+    "strength": "required",
+    "scope": "contractors"
+  },
+  {
+    "policy_file": "policy_25.md",
+    "obligation_text": "All Users shall endpoint.",
+    "topic": "endpoint",
+    "strength": "shall",
+    "scope": "all users"
+  },
+  {
+    "policy_file": "policy_26.md",
+    "obligation_text": "All Users recommended patch.",
+    "topic": "patch",
+    "strength": "recommended",
+    "scope": "all users"
+  },
+  {
+    "policy_file": "policy_27.md",
+    "obligation_text": "Developers recommended patch.",
+    "topic": "patch",
+    "strength": "recommended",
+    "scope": "developers"
+  },
+  {
+    "policy_file": "policy_28.md",
+    "obligation_text": "Admins prohibited network.",
+    "topic": "network",
+    "strength": "prohibited",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_29.md",
+    "obligation_text": "Admins prohibited cloud.",
+    "topic": "cloud",
+    "strength": "prohibited",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_30.md",
+    "obligation_text": "Contractors prohibited cloud.",
+    "topic": "cloud",
+    "strength": "prohibited",
+    "scope": "contractors"
+  },
+  {
+    "policy_file": "policy_01.md",
+    "obligation_text": "Admins shall monitoring.",
+    "topic": "monitoring",
+    "strength": "shall",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_02.md",
+    "obligation_text": "Admins should cloud.",
+    "topic": "cloud",
+    "strength": "should",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_03.md",
+    "obligation_text": "Admins prohibited third-party.",
+    "topic": "third-party",
+    "strength": "prohibited",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_04.md",
+    "obligation_text": "Employees prohibited network.",
+    "topic": "network",
+    "strength": "prohibited",
+    "scope": "employees"
+  },
+  {
+    "policy_file": "policy_05.md",
+    "obligation_text": "All Users must change.",
+    "topic": "change",
+    "strength": "must",
+    "scope": "all users"
+  },
+  {
+    "policy_file": "policy_06.md",
+    "obligation_text": "Developers required mobile. (Reference: Windows Server 2012)",
+    "topic": "mobile",
+    "strength": "required",
+    "scope": "developers"
+  },
+  {
+    "policy_file": "policy_07.md",
+    "obligation_text": "Developers prohibited provisioning.",
+    "topic": "provisioning",
+    "strength": "prohibited",
+    "scope": "developers"
+  },
+  {
+    "policy_file": "policy_08.md",
+    "obligation_text": "All Users required cloud.",
+    "topic": "cloud",
+    "strength": "required",
+    "scope": "all users"
+  },
+  {
+    "policy_file": "policy_09.md",
+    "obligation_text": "Contractors recommended logging.",
+    "topic": "logging",
+    "strength": "recommended",
+    "scope": "contractors"
+  },
+  {
+    "policy_file": "policy_10.md",
+    "obligation_text": "All Users recommended HR. (Reference: FTP)",
+    "topic": "HR",
+    "strength": "recommended",
+    "scope": "all users"
+  },
+  {
+    "policy_file": "policy_11.md",
+    "obligation_text": "Admins must asset.",
+    "topic": "asset",
+    "strength": "must",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_12.md",
+    "obligation_text": "All Users recommended provisioning.",
+    "topic": "provisioning",
+    "strength": "recommended",
+    "scope": "all users"
+  },
+  {
+    "policy_file": "policy_13.md",
+    "obligation_text": "Admins shall endpoint. (Reference: DES)",
+    "topic": "endpoint",
+    "strength": "shall",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_14.md",
+    "obligation_text": "Employees must logging.",
+    "topic": "logging",
+    "strength": "must",
+    "scope": "employees"
+  },
+  {
+    "policy_file": "policy_15.md",
+    "obligation_text": "Developers prohibited change.",
+    "topic": "change",
+    "strength": "prohibited",
+    "scope": "developers"
+  },
+  {
+    "policy_file": "policy_16.md",
+    "obligation_text": "Developers recommended provisioning.",
+    "topic": "provisioning",
+    "strength": "recommended",
+    "scope": "developers"
+  },
+  {
+    "policy_file": "policy_17.md",
+    "obligation_text": "Admins recommended asset.",
+    "topic": "asset",
+    "strength": "recommended",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_18.md",
+    "obligation_text": "Developers required cloud.",
+    "topic": "cloud",
+    "strength": "required",
+    "scope": "developers"
+  },
+  {
+    "policy_file": "policy_19.md",
+    "obligation_text": "Admins shall physical.",
+    "topic": "physical",
+    "strength": "shall",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_20.md",
+    "obligation_text": "All Users shall mobile.",
+    "topic": "mobile",
+    "strength": "shall",
+    "scope": "all users"
+  },
+  {
+    "policy_file": "policy_21.md",
+    "obligation_text": "Employees should mobile.",
+    "topic": "mobile",
+    "strength": "should",
+    "scope": "employees"
+  },
+  {
+    "policy_file": "policy_22.md",
+    "obligation_text": "Admins recommended password.",
+    "topic": "password",
+    "strength": "recommended",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_23.md",
+    "obligation_text": "All Users recommended backup.",
+    "topic": "backup",
+    "strength": "recommended",
+    "scope": "all users"
+  },
+  {
+    "policy_file": "policy_24.md",
+    "obligation_text": "Contractors should cloud.",
+    "topic": "cloud",
+    "strength": "should",
+    "scope": "contractors"
+  },
+  {
+    "policy_file": "policy_25.md",
+    "obligation_text": "Contractors shall mobile. (Reference: FTP)",
+    "topic": "mobile",
+    "strength": "shall",
+    "scope": "contractors"
+  },
+  {
+    "policy_file": "policy_26.md",
+    "obligation_text": "Admins must third-party.",
+    "topic": "third-party",
+    "strength": "must",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_27.md",
+    "obligation_text": "Admins required vendor.",
+    "topic": "vendor",
+    "strength": "required",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_28.md",
+    "obligation_text": "Admins shall HR.",
+    "topic": "HR",
+    "strength": "shall",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_29.md",
+    "obligation_text": "Employees required network.",
+    "topic": "network",
+    "strength": "required",
+    "scope": "employees"
+  },
+  {
+    "policy_file": "policy_30.md",
+    "obligation_text": "Employees prohibited vendor.",
+    "topic": "vendor",
+    "strength": "prohibited",
+    "scope": "employees"
+  },
+  {
+    "policy_file": "policy_01.md",
+    "obligation_text": "Developers recommended privacy.",
+    "topic": "privacy",
+    "strength": "recommended",
+    "scope": "developers"
+  },
+  {
+    "policy_file": "policy_02.md",
+    "obligation_text": "All Users prohibited password.",
+    "topic": "password",
+    "strength": "prohibited",
+    "scope": "all users"
+  },
+  {
+    "policy_file": "policy_03.md",
+    "obligation_text": "Contractors prohibited access. (Reference: DES)",
+    "topic": "access",
+    "strength": "prohibited",
+    "scope": "contractors"
+  },
+  {
+    "policy_file": "policy_04.md",
+    "obligation_text": "Contractors prohibited backup.",
+    "topic": "backup",
+    "strength": "prohibited",
+    "scope": "contractors"
+  },
+  {
+    "policy_file": "policy_05.md",
+    "obligation_text": "All Users must access.",
+    "topic": "access",
+    "strength": "must",
+    "scope": "all users"
+  },
+  {
+    "policy_file": "policy_06.md",
+    "obligation_text": "Contractors should mobile.",
+    "topic": "mobile",
+    "strength": "should",
+    "scope": "contractors"
+  },
+  {
+    "policy_file": "policy_07.md",
+    "obligation_text": "Admins recommended network.",
+    "topic": "network",
+    "strength": "recommended",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_08.md",
+    "obligation_text": "All Users required vendor.",
+    "topic": "vendor",
+    "strength": "required",
+    "scope": "all users"
+  },
+  {
+    "policy_file": "policy_09.md",
+    "obligation_text": "All Users must cloud.",
+    "topic": "cloud",
+    "strength": "must",
+    "scope": "all users"
+  },
+  {
+    "policy_file": "policy_10.md",
+    "obligation_text": "Admins should change. (Reference: FTP)",
+    "topic": "change",
+    "strength": "should",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_11.md",
+    "obligation_text": "Admins prohibited asset. (Reference: DES)",
+    "topic": "asset",
+    "strength": "prohibited",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_12.md",
+    "obligation_text": "Admins required privacy.",
+    "topic": "privacy",
+    "strength": "required",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_13.md",
+    "obligation_text": "Developers shall password.",
+    "topic": "password",
+    "strength": "shall",
+    "scope": "developers"
+  },
+  {
+    "policy_file": "policy_14.md",
+    "obligation_text": "Employees required HR.",
+    "topic": "HR",
+    "strength": "required",
+    "scope": "employees"
+  },
+  {
+    "policy_file": "policy_15.md",
+    "obligation_text": "Admins should password. (Reference: SOX 2002)",
+    "topic": "password",
+    "strength": "should",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_16.md",
+    "obligation_text": "Developers must monitoring.",
+    "topic": "monitoring",
+    "strength": "must",
+    "scope": "developers"
+  },
+  {
+    "policy_file": "policy_17.md",
+    "obligation_text": "Contractors required vendor. (Reference: WEP)",
+    "topic": "vendor",
+    "strength": "required",
+    "scope": "contractors"
+  },
+  {
+    "policy_file": "policy_18.md",
+    "obligation_text": "Admins recommended cloud.",
+    "topic": "cloud",
+    "strength": "recommended",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_19.md",
+    "obligation_text": "Employees shall cloud.",
+    "topic": "cloud",
+    "strength": "shall",
+    "scope": "employees"
+  },
+  {
+    "policy_file": "policy_20.md",
+    "obligation_text": "Contractors should third-party.",
+    "topic": "third-party",
+    "strength": "should",
+    "scope": "contractors"
+  },
+  {
+    "policy_file": "policy_21.md",
+    "obligation_text": "Developers required backup.",
+    "topic": "backup",
+    "strength": "required",
+    "scope": "developers"
+  },
+  {
+    "policy_file": "policy_22.md",
+    "obligation_text": "Contractors shall api.",
+    "topic": "api",
+    "strength": "shall",
+    "scope": "contractors"
+  },
+  {
+    "policy_file": "policy_23.md",
+    "obligation_text": "Employees should network.",
+    "topic": "network",
+    "strength": "should",
+    "scope": "employees"
+  },
+  {
+    "policy_file": "policy_24.md",
+    "obligation_text": "Contractors must access. (Reference: WEP)",
+    "topic": "access",
+    "strength": "must",
+    "scope": "contractors"
+  },
+  {
+    "policy_file": "policy_25.md",
+    "obligation_text": "Employees must third-party.",
+    "topic": "third-party",
+    "strength": "must",
+    "scope": "employees"
+  },
+  {
+    "policy_file": "policy_26.md",
+    "obligation_text": "All Users prohibited change.",
+    "topic": "change",
+    "strength": "prohibited",
+    "scope": "all users"
+  },
+  {
+    "policy_file": "policy_27.md",
+    "obligation_text": "Admins should physical.",
+    "topic": "physical",
+    "strength": "should",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_28.md",
+    "obligation_text": "Contractors required api.",
+    "topic": "api",
+    "strength": "required",
+    "scope": "contractors"
+  },
+  {
+    "policy_file": "policy_29.md",
+    "obligation_text": "Contractors shall vendor.",
+    "topic": "vendor",
+    "strength": "shall",
+    "scope": "contractors"
+  },
+  {
+    "policy_file": "policy_30.md",
+    "obligation_text": "Employees should cloud.",
+    "topic": "cloud",
+    "strength": "should",
+    "scope": "employees"
+  },
+  {
+    "policy_file": "policy_01.md",
+    "obligation_text": "Employees recommended change.",
+    "topic": "change",
+    "strength": "recommended",
+    "scope": "employees"
+  },
+  {
+    "policy_file": "policy_02.md",
+    "obligation_text": "Employees shall privacy.",
+    "topic": "privacy",
+    "strength": "shall",
+    "scope": "employees"
+  },
+  {
+    "policy_file": "policy_03.md",
+    "obligation_text": "Contractors recommended endpoint.",
+    "topic": "endpoint",
+    "strength": "recommended",
+    "scope": "contractors"
+  },
+  {
+    "policy_file": "policy_04.md",
+    "obligation_text": "Admins must network.",
+    "topic": "network",
+    "strength": "must",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_05.md",
+    "obligation_text": "Contractors required logging.",
+    "topic": "logging",
+    "strength": "required",
+    "scope": "contractors"
+  },
+  {
+    "policy_file": "policy_06.md",
+    "obligation_text": "Admins recommended api.",
+    "topic": "api",
+    "strength": "recommended",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_07.md",
+    "obligation_text": "Employees must logging.",
+    "topic": "logging",
+    "strength": "must",
+    "scope": "employees"
+  },
+  {
+    "policy_file": "policy_08.md",
+    "obligation_text": "Employees must data retention.",
+    "topic": "data retention",
+    "strength": "must",
+    "scope": "employees"
+  },
+  {
+    "policy_file": "policy_09.md",
+    "obligation_text": "Admins must monitoring.",
+    "topic": "monitoring",
+    "strength": "must",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_10.md",
+    "obligation_text": "Admins should password.",
+    "topic": "password",
+    "strength": "should",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_11.md",
+    "obligation_text": "Admins required access.",
+    "topic": "access",
+    "strength": "required",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_12.md",
+    "obligation_text": "Employees required api.",
+    "topic": "api",
+    "strength": "required",
+    "scope": "employees"
+  },
+  {
+    "policy_file": "policy_13.md",
+    "obligation_text": "Employees prohibited endpoint.",
+    "topic": "endpoint",
+    "strength": "prohibited",
+    "scope": "employees"
+  },
+  {
+    "policy_file": "policy_14.md",
+    "obligation_text": "Employees recommended physical.",
+    "topic": "physical",
+    "strength": "recommended",
+    "scope": "employees"
+  },
+  {
+    "policy_file": "policy_15.md",
+    "obligation_text": "Employees prohibited logging.",
+    "topic": "logging",
+    "strength": "prohibited",
+    "scope": "employees"
+  },
+  {
+    "policy_file": "policy_16.md",
+    "obligation_text": "Admins required monitoring.",
+    "topic": "monitoring",
+    "strength": "required",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_17.md",
+    "obligation_text": "All Users required logging.",
+    "topic": "logging",
+    "strength": "required",
+    "scope": "all users"
+  },
+  {
+    "policy_file": "policy_18.md",
+    "obligation_text": "Contractors shall patch.",
+    "topic": "patch",
+    "strength": "shall",
+    "scope": "contractors"
+  },
+  {
+    "policy_file": "policy_19.md",
+    "obligation_text": "Employees required privacy. (Reference: DES)",
+    "topic": "privacy",
+    "strength": "required",
+    "scope": "employees"
+  },
+  {
+    "policy_file": "policy_20.md",
+    "obligation_text": "All Users should privacy.",
+    "topic": "privacy",
+    "strength": "should",
+    "scope": "all users"
+  },
+  {
+    "policy_file": "policy_21.md",
+    "obligation_text": "All Users required password. (Reference: SHA-1)",
+    "topic": "password",
+    "strength": "required",
+    "scope": "all users"
+  },
+  {
+    "policy_file": "policy_22.md",
+    "obligation_text": "Admins prohibited cloud. (Reference: DES)",
+    "topic": "cloud",
+    "strength": "prohibited",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_23.md",
+    "obligation_text": "All Users should physical.",
+    "topic": "physical",
+    "strength": "should",
+    "scope": "all users"
+  },
+  {
+    "policy_file": "policy_24.md",
+    "obligation_text": "Developers recommended endpoint.",
+    "topic": "endpoint",
+    "strength": "recommended",
+    "scope": "developers"
+  },
+  {
+    "policy_file": "policy_25.md",
+    "obligation_text": "Employees required cloud.",
+    "topic": "cloud",
+    "strength": "required",
+    "scope": "employees"
+  },
+  {
+    "policy_file": "policy_26.md",
+    "obligation_text": "All Users should asset.",
+    "topic": "asset",
+    "strength": "should",
+    "scope": "all users"
+  },
+  {
+    "policy_file": "policy_27.md",
+    "obligation_text": "Developers shall password. (Reference: Windows Server 2012)",
+    "topic": "password",
+    "strength": "shall",
+    "scope": "developers"
+  },
+  {
+    "policy_file": "policy_28.md",
+    "obligation_text": "Contractors should password. (Reference: SHA-1)",
+    "topic": "password",
+    "strength": "should",
+    "scope": "contractors"
+  },
+  {
+    "policy_file": "policy_29.md",
+    "obligation_text": "All Users required access.",
+    "topic": "access",
+    "strength": "required",
+    "scope": "all users"
+  },
+  {
+    "policy_file": "policy_30.md",
+    "obligation_text": "Admins shall privacy.",
+    "topic": "privacy",
+    "strength": "shall",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_01.md",
+    "obligation_text": "All Users recommended monitoring.",
+    "topic": "monitoring",
+    "strength": "recommended",
+    "scope": "all users"
+  },
+  {
+    "policy_file": "policy_02.md",
+    "obligation_text": "Admins prohibited third-party.",
+    "topic": "third-party",
+    "strength": "prohibited",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_03.md",
+    "obligation_text": "All Users must endpoint.",
+    "topic": "endpoint",
+    "strength": "must",
+    "scope": "all users"
+  },
+  {
+    "policy_file": "policy_04.md",
+    "obligation_text": "Admins required HR.",
+    "topic": "HR",
+    "strength": "required",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_05.md",
+    "obligation_text": "Contractors recommended provisioning.",
+    "topic": "provisioning",
+    "strength": "recommended",
+    "scope": "contractors"
+  },
+  {
+    "policy_file": "policy_06.md",
+    "obligation_text": "Admins recommended mobile.",
+    "topic": "mobile",
+    "strength": "recommended",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_07.md",
+    "obligation_text": "Contractors must privacy.",
+    "topic": "privacy",
+    "strength": "must",
+    "scope": "contractors"
+  },
+  {
+    "policy_file": "policy_08.md",
+    "obligation_text": "Employees required privacy.",
+    "topic": "privacy",
+    "strength": "required",
+    "scope": "employees"
+  },
+  {
+    "policy_file": "policy_09.md",
+    "obligation_text": "Employees must cloud.",
+    "topic": "cloud",
+    "strength": "must",
+    "scope": "employees"
+  },
+  {
+    "policy_file": "policy_10.md",
+    "obligation_text": "Contractors shall cloud. (Reference: Windows Server 2012)",
+    "topic": "cloud",
+    "strength": "shall",
+    "scope": "contractors"
+  },
+  {
+    "policy_file": "policy_11.md",
+    "obligation_text": "All Users prohibited network. (Reference: GDPR 2016)",
+    "topic": "network",
+    "strength": "prohibited",
+    "scope": "all users"
+  },
+  {
+    "policy_file": "policy_12.md",
+    "obligation_text": "Developers required data retention.",
+    "topic": "data retention",
+    "strength": "required",
+    "scope": "developers"
+  },
+  {
+    "policy_file": "policy_13.md",
+    "obligation_text": "Employees must cloud.",
+    "topic": "cloud",
+    "strength": "must",
+    "scope": "employees"
+  },
+  {
+    "policy_file": "policy_14.md",
+    "obligation_text": "Developers must patch.",
+    "topic": "patch",
+    "strength": "must",
+    "scope": "developers"
+  },
+  {
+    "policy_file": "policy_15.md",
+    "obligation_text": "Employees prohibited change.",
+    "topic": "change",
+    "strength": "prohibited",
+    "scope": "employees"
+  },
+  {
+    "policy_file": "policy_16.md",
+    "obligation_text": "All Users required network.",
+    "topic": "network",
+    "strength": "required",
+    "scope": "all users"
+  },
+  {
+    "policy_file": "policy_17.md",
+    "obligation_text": "Contractors shall vendor.",
+    "topic": "vendor",
+    "strength": "shall",
+    "scope": "contractors"
+  },
+  {
+    "policy_file": "policy_18.md",
+    "obligation_text": "Admins shall password.",
+    "topic": "password",
+    "strength": "shall",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_19.md",
+    "obligation_text": "Developers shall encryption.",
+    "topic": "encryption",
+    "strength": "shall",
+    "scope": "developers"
+  },
+  {
+    "policy_file": "policy_20.md",
+    "obligation_text": "Admins recommended asset.",
+    "topic": "asset",
+    "strength": "recommended",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_21.md",
+    "obligation_text": "All Users must patch.",
+    "topic": "patch",
+    "strength": "must",
+    "scope": "all users"
+  },
+  {
+    "policy_file": "policy_22.md",
+    "obligation_text": "Admins prohibited asset.",
+    "topic": "asset",
+    "strength": "prohibited",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_23.md",
+    "obligation_text": "Employees should physical.",
+    "topic": "physical",
+    "strength": "should",
+    "scope": "employees"
+  },
+  {
+    "policy_file": "policy_24.md",
+    "obligation_text": "All Users should monitoring.",
+    "topic": "monitoring",
+    "strength": "should",
+    "scope": "all users"
+  },
+  {
+    "policy_file": "policy_25.md",
+    "obligation_text": "Admins should encryption.",
+    "topic": "encryption",
+    "strength": "should",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_26.md",
+    "obligation_text": "Developers must patch. (Reference: DES)",
+    "topic": "patch",
+    "strength": "must",
+    "scope": "developers"
+  },
+  {
+    "policy_file": "policy_27.md",
+    "obligation_text": "Contractors required asset.",
+    "topic": "asset",
+    "strength": "required",
+    "scope": "contractors"
+  },
+  {
+    "policy_file": "policy_28.md",
+    "obligation_text": "Admins shall vendor.",
+    "topic": "vendor",
+    "strength": "shall",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_29.md",
+    "obligation_text": "Employees must physical.",
+    "topic": "physical",
+    "strength": "must",
+    "scope": "employees"
+  },
+  {
+    "policy_file": "policy_30.md",
+    "obligation_text": "Employees must third-party.",
+    "topic": "third-party",
+    "strength": "must",
+    "scope": "employees"
+  },
+  {
+    "policy_file": "policy_01.md",
+    "obligation_text": "All Users shall api.",
+    "topic": "api",
+    "strength": "shall",
+    "scope": "all users"
+  },
+  {
+    "policy_file": "policy_02.md",
+    "obligation_text": "Contractors required provisioning. (Reference: SOX 2002)",
+    "topic": "provisioning",
+    "strength": "required",
+    "scope": "contractors"
+  },
+  {
+    "policy_file": "policy_03.md",
+    "obligation_text": "Developers required vendor.",
+    "topic": "vendor",
+    "strength": "required",
+    "scope": "developers"
+  },
+  {
+    "policy_file": "policy_04.md",
+    "obligation_text": "Developers shall asset. (Reference: FTP)",
+    "topic": "asset",
+    "strength": "shall",
+    "scope": "developers"
+  },
+  {
+    "policy_file": "policy_05.md",
+    "obligation_text": "Employees recommended privacy. (Reference: GDPR 2016)",
+    "topic": "privacy",
+    "strength": "recommended",
+    "scope": "employees"
+  },
+  {
+    "policy_file": "policy_06.md",
+    "obligation_text": "Admins must HR.",
+    "topic": "HR",
+    "strength": "must",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_07.md",
+    "obligation_text": "Employees must monitoring.",
+    "topic": "monitoring",
+    "strength": "must",
+    "scope": "employees"
+  },
+  {
+    "policy_file": "policy_08.md",
+    "obligation_text": "Contractors must network. (Reference: SHA-1)",
+    "topic": "network",
+    "strength": "must",
+    "scope": "contractors"
+  },
+  {
+    "policy_file": "policy_09.md",
+    "obligation_text": "Admins must backup.",
+    "topic": "backup",
+    "strength": "must",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_10.md",
+    "obligation_text": "Developers must physical.",
+    "topic": "physical",
+    "strength": "must",
+    "scope": "developers"
+  },
+  {
+    "policy_file": "policy_11.md",
+    "obligation_text": "All Users must third-party.",
+    "topic": "third-party",
+    "strength": "must",
+    "scope": "all users"
+  },
+  {
+    "policy_file": "policy_12.md",
+    "obligation_text": "Contractors should cloud.",
+    "topic": "cloud",
+    "strength": "should",
+    "scope": "contractors"
+  },
+  {
+    "policy_file": "policy_13.md",
+    "obligation_text": "Admins should cloud.",
+    "topic": "cloud",
+    "strength": "should",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_14.md",
+    "obligation_text": "Contractors recommended vendor.",
+    "topic": "vendor",
+    "strength": "recommended",
+    "scope": "contractors"
+  },
+  {
+    "policy_file": "policy_15.md",
+    "obligation_text": "Developers recommended privacy.",
+    "topic": "privacy",
+    "strength": "recommended",
+    "scope": "developers"
+  },
+  {
+    "policy_file": "policy_16.md",
+    "obligation_text": "Employees shall cloud.",
+    "topic": "cloud",
+    "strength": "shall",
+    "scope": "employees"
+  },
+  {
+    "policy_file": "policy_17.md",
+    "obligation_text": "All Users prohibited patch.",
+    "topic": "patch",
+    "strength": "prohibited",
+    "scope": "all users"
+  },
+  {
+    "policy_file": "policy_18.md",
+    "obligation_text": "Contractors required data retention.",
+    "topic": "data retention",
+    "strength": "required",
+    "scope": "contractors"
+  },
+  {
+    "policy_file": "policy_19.md",
+    "obligation_text": "Employees required mobile. (Reference: SHA-1)",
+    "topic": "mobile",
+    "strength": "required",
+    "scope": "employees"
+  },
+  {
+    "policy_file": "policy_20.md",
+    "obligation_text": "Admins required mobile.",
+    "topic": "mobile",
+    "strength": "required",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_21.md",
+    "obligation_text": "Contractors recommended access.",
+    "topic": "access",
+    "strength": "recommended",
+    "scope": "contractors"
+  },
+  {
+    "policy_file": "policy_22.md",
+    "obligation_text": "Contractors prohibited endpoint.",
+    "topic": "endpoint",
+    "strength": "prohibited",
+    "scope": "contractors"
+  },
+  {
+    "policy_file": "policy_23.md",
+    "obligation_text": "All Users must provisioning.",
+    "topic": "provisioning",
+    "strength": "must",
+    "scope": "all users"
+  },
+  {
+    "policy_file": "policy_24.md",
+    "obligation_text": "Admins shall change.",
+    "topic": "change",
+    "strength": "shall",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_25.md",
+    "obligation_text": "Contractors must backup.",
+    "topic": "backup",
+    "strength": "must",
+    "scope": "contractors"
+  },
+  {
+    "policy_file": "policy_26.md",
+    "obligation_text": "Admins recommended access.",
+    "topic": "access",
+    "strength": "recommended",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_27.md",
+    "obligation_text": "Employees prohibited third-party.",
+    "topic": "third-party",
+    "strength": "prohibited",
+    "scope": "employees"
+  },
+  {
+    "policy_file": "policy_28.md",
+    "obligation_text": "Admins shall endpoint.",
+    "topic": "endpoint",
+    "strength": "shall",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_29.md",
+    "obligation_text": "Contractors prohibited mobile.",
+    "topic": "mobile",
+    "strength": "prohibited",
+    "scope": "contractors"
+  },
+  {
+    "policy_file": "policy_30.md",
+    "obligation_text": "Contractors recommended asset.",
+    "topic": "asset",
+    "strength": "recommended",
+    "scope": "contractors"
+  },
+  {
+    "policy_file": "policy_01.md",
+    "obligation_text": "Developers recommended password.",
+    "topic": "password",
+    "strength": "recommended",
+    "scope": "developers"
+  },
+  {
+    "policy_file": "policy_02.md",
+    "obligation_text": "Employees required change.",
+    "topic": "change",
+    "strength": "required",
+    "scope": "employees"
+  },
+  {
+    "policy_file": "policy_03.md",
+    "obligation_text": "Admins prohibited privacy.",
+    "topic": "privacy",
+    "strength": "prohibited",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_04.md",
+    "obligation_text": "All Users should data retention.",
+    "topic": "data retention",
+    "strength": "should",
+    "scope": "all users"
+  },
+  {
+    "policy_file": "policy_05.md",
+    "obligation_text": "Employees prohibited data retention. (Reference: Windows Server 2012)",
+    "topic": "data retention",
+    "strength": "prohibited",
+    "scope": "employees"
+  },
+  {
+    "policy_file": "policy_06.md",
+    "obligation_text": "Developers recommended password.",
+    "topic": "password",
+    "strength": "recommended",
+    "scope": "developers"
+  },
+  {
+    "policy_file": "policy_07.md",
+    "obligation_text": "Employees must mobile.",
+    "topic": "mobile",
+    "strength": "must",
+    "scope": "employees"
+  },
+  {
+    "policy_file": "policy_08.md",
+    "obligation_text": "Admins shall mobile.",
+    "topic": "mobile",
+    "strength": "shall",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_09.md",
+    "obligation_text": "Developers recommended third-party. (Reference: TLS 1.0)",
+    "topic": "third-party",
+    "strength": "recommended",
+    "scope": "developers"
+  },
+  {
+    "policy_file": "policy_10.md",
+    "obligation_text": "Employees prohibited physical.",
+    "topic": "physical",
+    "strength": "prohibited",
+    "scope": "employees"
+  },
+  {
+    "policy_file": "policy_11.md",
+    "obligation_text": "All Users must data retention.",
+    "topic": "data retention",
+    "strength": "must",
+    "scope": "all users"
+  },
+  {
+    "policy_file": "policy_12.md",
+    "obligation_text": "Employees prohibited api.",
+    "topic": "api",
+    "strength": "prohibited",
+    "scope": "employees"
+  },
+  {
+    "policy_file": "policy_13.md",
+    "obligation_text": "Admins shall patch.",
+    "topic": "patch",
+    "strength": "shall",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_14.md",
+    "obligation_text": "Admins should logging. (Reference: NIST SP 800-53 Rev 4)",
+    "topic": "logging",
+    "strength": "should",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_15.md",
+    "obligation_text": "Developers recommended network.",
+    "topic": "network",
+    "strength": "recommended",
+    "scope": "developers"
+  },
+  {
+    "policy_file": "policy_16.md",
+    "obligation_text": "Admins recommended privacy.",
+    "topic": "privacy",
+    "strength": "recommended",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_17.md",
+    "obligation_text": "Admins prohibited data retention.",
+    "topic": "data retention",
+    "strength": "prohibited",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_18.md",
+    "obligation_text": "All Users required mobile. (Reference: DES)",
+    "topic": "mobile",
+    "strength": "required",
+    "scope": "all users"
+  },
+  {
+    "policy_file": "policy_19.md",
+    "obligation_text": "All Users must monitoring.",
+    "topic": "monitoring",
+    "strength": "must",
+    "scope": "all users"
+  },
+  {
+    "policy_file": "policy_20.md",
+    "obligation_text": "All Users should provisioning. (Reference: WEP)",
+    "topic": "provisioning",
+    "strength": "should",
+    "scope": "all users"
+  },
+  {
+    "policy_file": "policy_21.md",
+    "obligation_text": "Developers should access.",
+    "topic": "access",
+    "strength": "should",
+    "scope": "developers"
+  },
+  {
+    "policy_file": "policy_22.md",
+    "obligation_text": "Employees shall mobile.",
+    "topic": "mobile",
+    "strength": "shall",
+    "scope": "employees"
+  },
+  {
+    "policy_file": "policy_23.md",
+    "obligation_text": "Employees must asset.",
+    "topic": "asset",
+    "strength": "must",
+    "scope": "employees"
+  },
+  {
+    "policy_file": "policy_24.md",
+    "obligation_text": "All Users should network.",
+    "topic": "network",
+    "strength": "should",
+    "scope": "all users"
+  },
+  {
+    "policy_file": "policy_25.md",
+    "obligation_text": "Employees should data retention.",
+    "topic": "data retention",
+    "strength": "should",
+    "scope": "employees"
+  },
+  {
+    "policy_file": "policy_26.md",
+    "obligation_text": "Employees should patch.",
+    "topic": "patch",
+    "strength": "should",
+    "scope": "employees"
+  },
+  {
+    "policy_file": "policy_27.md",
+    "obligation_text": "All Users recommended endpoint.",
+    "topic": "endpoint",
+    "strength": "recommended",
+    "scope": "all users"
+  },
+  {
+    "policy_file": "policy_28.md",
+    "obligation_text": "Employees shall password.",
+    "topic": "password",
+    "strength": "shall",
+    "scope": "employees"
+  },
+  {
+    "policy_file": "policy_29.md",
+    "obligation_text": "Admins recommended data retention.",
+    "topic": "data retention",
+    "strength": "recommended",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_30.md",
+    "obligation_text": "All Users should provisioning.",
+    "topic": "provisioning",
+    "strength": "should",
+    "scope": "all users"
+  },
+  {
+    "policy_file": "policy_01.md",
+    "obligation_text": "Developers required third-party.",
+    "topic": "third-party",
+    "strength": "required",
+    "scope": "developers"
+  },
+  {
+    "policy_file": "policy_02.md",
+    "obligation_text": "Admins prohibited encryption.",
+    "topic": "encryption",
+    "strength": "prohibited",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_03.md",
+    "obligation_text": "Developers required cloud. (Reference: GDPR 2016)",
+    "topic": "cloud",
+    "strength": "required",
+    "scope": "developers"
+  },
+  {
+    "policy_file": "policy_04.md",
+    "obligation_text": "Developers shall third-party.",
+    "topic": "third-party",
+    "strength": "shall",
+    "scope": "developers"
+  },
+  {
+    "policy_file": "policy_05.md",
+    "obligation_text": "All Users should patch.",
+    "topic": "patch",
+    "strength": "should",
+    "scope": "all users"
+  },
+  {
+    "policy_file": "policy_06.md",
+    "obligation_text": "Developers required backup.",
+    "topic": "backup",
+    "strength": "required",
+    "scope": "developers"
+  },
+  {
+    "policy_file": "policy_07.md",
+    "obligation_text": "Admins must mobile.",
+    "topic": "mobile",
+    "strength": "must",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_08.md",
+    "obligation_text": "Admins required physical.",
+    "topic": "physical",
+    "strength": "required",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_09.md",
+    "obligation_text": "Contractors must data retention.",
+    "topic": "data retention",
+    "strength": "must",
+    "scope": "contractors"
+  },
+  {
+    "policy_file": "policy_10.md",
+    "obligation_text": "Developers shall encryption.",
+    "topic": "encryption",
+    "strength": "shall",
+    "scope": "developers"
+  },
+  {
+    "policy_file": "policy_11.md",
+    "obligation_text": "Employees prohibited vendor.",
+    "topic": "vendor",
+    "strength": "prohibited",
+    "scope": "employees"
+  },
+  {
+    "policy_file": "policy_12.md",
+    "obligation_text": "Contractors must mobile.",
+    "topic": "mobile",
+    "strength": "must",
+    "scope": "contractors"
+  },
+  {
+    "policy_file": "policy_13.md",
+    "obligation_text": "Developers should HR.",
+    "topic": "HR",
+    "strength": "should",
+    "scope": "developers"
+  },
+  {
+    "policy_file": "policy_14.md",
+    "obligation_text": "Admins required password.",
+    "topic": "password",
+    "strength": "required",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_15.md",
+    "obligation_text": "Developers must data retention.",
+    "topic": "data retention",
+    "strength": "must",
+    "scope": "developers"
+  },
+  {
+    "policy_file": "policy_16.md",
+    "obligation_text": "Developers required HR.",
+    "topic": "HR",
+    "strength": "required",
+    "scope": "developers"
+  },
+  {
+    "policy_file": "policy_17.md",
+    "obligation_text": "Developers shall backup.",
+    "topic": "backup",
+    "strength": "shall",
+    "scope": "developers"
+  },
+  {
+    "policy_file": "policy_18.md",
+    "obligation_text": "Employees required encryption.",
+    "topic": "encryption",
+    "strength": "required",
+    "scope": "employees"
+  },
+  {
+    "policy_file": "policy_19.md",
+    "obligation_text": "All Users required provisioning.",
+    "topic": "provisioning",
+    "strength": "required",
+    "scope": "all users"
+  },
+  {
+    "policy_file": "policy_20.md",
+    "obligation_text": "Developers required cloud.",
+    "topic": "cloud",
+    "strength": "required",
+    "scope": "developers"
+  },
+  {
+    "policy_file": "policy_21.md",
+    "obligation_text": "Contractors recommended change.",
+    "topic": "change",
+    "strength": "recommended",
+    "scope": "contractors"
+  },
+  {
+    "policy_file": "policy_22.md",
+    "obligation_text": "All Users should backup. (Reference: GDPR 2016)",
+    "topic": "backup",
+    "strength": "should",
+    "scope": "all users"
+  },
+  {
+    "policy_file": "policy_23.md",
+    "obligation_text": "Contractors must vendor.",
+    "topic": "vendor",
+    "strength": "must",
+    "scope": "contractors"
+  },
+  {
+    "policy_file": "policy_24.md",
+    "obligation_text": "Contractors required logging. (Reference: NIST SP 800-53 Rev 4)",
+    "topic": "logging",
+    "strength": "required",
+    "scope": "contractors"
+  },
+  {
+    "policy_file": "policy_25.md",
+    "obligation_text": "All Users should physical.",
+    "topic": "physical",
+    "strength": "should",
+    "scope": "all users"
+  },
+  {
+    "policy_file": "policy_26.md",
+    "obligation_text": "All Users recommended vendor.",
+    "topic": "vendor",
+    "strength": "recommended",
+    "scope": "all users"
+  },
+  {
+    "policy_file": "policy_27.md",
+    "obligation_text": "Developers should cloud. (Reference: GDPR 2016)",
+    "topic": "cloud",
+    "strength": "should",
+    "scope": "developers"
+  },
+  {
+    "policy_file": "policy_28.md",
+    "obligation_text": "All Users recommended vendor.",
+    "topic": "vendor",
+    "strength": "recommended",
+    "scope": "all users"
+  },
+  {
+    "policy_file": "policy_29.md",
+    "obligation_text": "Employees prohibited access.",
+    "topic": "access",
+    "strength": "prohibited",
+    "scope": "employees"
+  },
+  {
+    "policy_file": "policy_30.md",
+    "obligation_text": "Admins recommended asset.",
+    "topic": "asset",
+    "strength": "recommended",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_01.md",
+    "obligation_text": "All Users required asset.",
+    "topic": "asset",
+    "strength": "required",
+    "scope": "all users"
+  },
+  {
+    "policy_file": "policy_02.md",
+    "obligation_text": "Developers recommended mobile.",
+    "topic": "mobile",
+    "strength": "recommended",
+    "scope": "developers"
+  },
+  {
+    "policy_file": "policy_03.md",
+    "obligation_text": "Contractors prohibited data retention.",
+    "topic": "data retention",
+    "strength": "prohibited",
+    "scope": "contractors"
+  },
+  {
+    "policy_file": "policy_04.md",
+    "obligation_text": "All Users should api.",
+    "topic": "api",
+    "strength": "should",
+    "scope": "all users"
+  },
+  {
+    "policy_file": "policy_05.md",
+    "obligation_text": "Admins must cloud.",
+    "topic": "cloud",
+    "strength": "must",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_06.md",
+    "obligation_text": "Employees must logging.",
+    "topic": "logging",
+    "strength": "must",
+    "scope": "employees"
+  },
+  {
+    "policy_file": "policy_07.md",
+    "obligation_text": "All Users prohibited third-party.",
+    "topic": "third-party",
+    "strength": "prohibited",
+    "scope": "all users"
+  },
+  {
+    "policy_file": "policy_08.md",
+    "obligation_text": "Admins shall physical.",
+    "topic": "physical",
+    "strength": "shall",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_09.md",
+    "obligation_text": "Admins should physical. (Reference: NIST SP 800-53 Rev 4)",
+    "topic": "physical",
+    "strength": "should",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_10.md",
+    "obligation_text": "Employees required patch. (Reference: SOX 2002)",
+    "topic": "patch",
+    "strength": "required",
+    "scope": "employees"
+  },
+  {
+    "policy_file": "policy_11.md",
+    "obligation_text": "Developers prohibited mobile.",
+    "topic": "mobile",
+    "strength": "prohibited",
+    "scope": "developers"
+  },
+  {
+    "policy_file": "policy_12.md",
+    "obligation_text": "Developers prohibited physical.",
+    "topic": "physical",
+    "strength": "prohibited",
+    "scope": "developers"
+  },
+  {
+    "policy_file": "policy_13.md",
+    "obligation_text": "Developers required asset.",
+    "topic": "asset",
+    "strength": "required",
+    "scope": "developers"
+  },
+  {
+    "policy_file": "policy_14.md",
+    "obligation_text": "All Users required physical.",
+    "topic": "physical",
+    "strength": "required",
+    "scope": "all users"
+  },
+  {
+    "policy_file": "policy_15.md",
+    "obligation_text": "Contractors recommended HR.",
+    "topic": "HR",
+    "strength": "recommended",
+    "scope": "contractors"
+  },
+  {
+    "policy_file": "policy_16.md",
+    "obligation_text": "All Users should change.",
+    "topic": "change",
+    "strength": "should",
+    "scope": "all users"
+  },
+  {
+    "policy_file": "policy_17.md",
+    "obligation_text": "Admins required access.",
+    "topic": "access",
+    "strength": "required",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_18.md",
+    "obligation_text": "Developers prohibited cloud. (Reference: FTP)",
+    "topic": "cloud",
+    "strength": "prohibited",
+    "scope": "developers"
+  },
+  {
+    "policy_file": "policy_19.md",
+    "obligation_text": "Admins prohibited provisioning.",
+    "topic": "provisioning",
+    "strength": "prohibited",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_20.md",
+    "obligation_text": "Developers shall HR. (Reference: SHA-1)",
+    "topic": "HR",
+    "strength": "shall",
+    "scope": "developers"
+  },
+  {
+    "policy_file": "policy_21.md",
+    "obligation_text": "Contractors recommended encryption.",
+    "topic": "encryption",
+    "strength": "recommended",
+    "scope": "contractors"
+  },
+  {
+    "policy_file": "policy_22.md",
+    "obligation_text": "Contractors prohibited monitoring.",
+    "topic": "monitoring",
+    "strength": "prohibited",
+    "scope": "contractors"
+  },
+  {
+    "policy_file": "policy_23.md",
+    "obligation_text": "Contractors required asset. (Reference: NIST SP 800-53 Rev 4)",
+    "topic": "asset",
+    "strength": "required",
+    "scope": "contractors"
+  },
+  {
+    "policy_file": "policy_24.md",
+    "obligation_text": "Developers should cloud.",
+    "topic": "cloud",
+    "strength": "should",
+    "scope": "developers"
+  },
+  {
+    "policy_file": "policy_25.md",
+    "obligation_text": "Developers shall network.",
+    "topic": "network",
+    "strength": "shall",
+    "scope": "developers"
+  },
+  {
+    "policy_file": "policy_26.md",
+    "obligation_text": "Contractors recommended mobile.",
+    "topic": "mobile",
+    "strength": "recommended",
+    "scope": "contractors"
+  },
+  {
+    "policy_file": "policy_27.md",
+    "obligation_text": "Contractors should backup. (Reference: SHA-1)",
+    "topic": "backup",
+    "strength": "should",
+    "scope": "contractors"
+  },
+  {
+    "policy_file": "policy_28.md",
+    "obligation_text": "Contractors required monitoring.",
+    "topic": "monitoring",
+    "strength": "required",
+    "scope": "contractors"
+  },
+  {
+    "policy_file": "policy_29.md",
+    "obligation_text": "Contractors shall monitoring.",
+    "topic": "monitoring",
+    "strength": "shall",
+    "scope": "contractors"
+  },
+  {
+    "policy_file": "policy_30.md",
+    "obligation_text": "Contractors must privacy.",
+    "topic": "privacy",
+    "strength": "must",
+    "scope": "contractors"
+  },
+  {
+    "policy_file": "policy_01.md",
+    "obligation_text": "Admins shall provisioning.",
+    "topic": "provisioning",
+    "strength": "shall",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_02.md",
+    "obligation_text": "Developers shall monitoring. (Reference: NIST SP 800-53 Rev 4)",
+    "topic": "monitoring",
+    "strength": "shall",
+    "scope": "developers"
+  },
+  {
+    "policy_file": "policy_03.md",
+    "obligation_text": "Developers recommended monitoring.",
+    "topic": "monitoring",
+    "strength": "recommended",
+    "scope": "developers"
+  },
+  {
+    "policy_file": "policy_04.md",
+    "obligation_text": "All Users required privacy.",
+    "topic": "privacy",
+    "strength": "required",
+    "scope": "all users"
+  },
+  {
+    "policy_file": "policy_05.md",
+    "obligation_text": "Developers recommended mobile.",
+    "topic": "mobile",
+    "strength": "recommended",
+    "scope": "developers"
+  },
+  {
+    "policy_file": "policy_06.md",
+    "obligation_text": "Contractors recommended asset.",
+    "topic": "asset",
+    "strength": "recommended",
+    "scope": "contractors"
+  },
+  {
+    "policy_file": "policy_07.md",
+    "obligation_text": "Developers recommended cloud.",
+    "topic": "cloud",
+    "strength": "recommended",
+    "scope": "developers"
+  },
+  {
+    "policy_file": "policy_08.md",
+    "obligation_text": "All Users shall mobile.",
+    "topic": "mobile",
+    "strength": "shall",
+    "scope": "all users"
+  },
+  {
+    "policy_file": "policy_09.md",
+    "obligation_text": "All Users should data retention.",
+    "topic": "data retention",
+    "strength": "should",
+    "scope": "all users"
+  },
+  {
+    "policy_file": "policy_10.md",
+    "obligation_text": "Developers must password.",
+    "topic": "password",
+    "strength": "must",
+    "scope": "developers"
+  },
+  {
+    "policy_file": "policy_11.md",
+    "obligation_text": "Contractors required cloud.",
+    "topic": "cloud",
+    "strength": "required",
+    "scope": "contractors"
+  },
+  {
+    "policy_file": "policy_12.md",
+    "obligation_text": "All Users must logging.",
+    "topic": "logging",
+    "strength": "must",
+    "scope": "all users"
+  },
+  {
+    "policy_file": "policy_13.md",
+    "obligation_text": "Employees should change.",
+    "topic": "change",
+    "strength": "should",
+    "scope": "employees"
+  },
+  {
+    "policy_file": "policy_14.md",
+    "obligation_text": "All Users should provisioning.",
+    "topic": "provisioning",
+    "strength": "should",
+    "scope": "all users"
+  },
+  {
+    "policy_file": "policy_15.md",
+    "obligation_text": "Developers must network.",
+    "topic": "network",
+    "strength": "must",
+    "scope": "developers"
+  },
+  {
+    "policy_file": "policy_16.md",
+    "obligation_text": "Employees prohibited endpoint.",
+    "topic": "endpoint",
+    "strength": "prohibited",
+    "scope": "employees"
+  },
+  {
+    "policy_file": "policy_17.md",
+    "obligation_text": "Employees prohibited data retention.",
+    "topic": "data retention",
+    "strength": "prohibited",
+    "scope": "employees"
+  },
+  {
+    "policy_file": "policy_18.md",
+    "obligation_text": "Admins recommended access. (Reference: SOX 2002)",
+    "topic": "access",
+    "strength": "recommended",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_19.md",
+    "obligation_text": "Contractors shall access.",
+    "topic": "access",
+    "strength": "shall",
+    "scope": "contractors"
+  },
+  {
+    "policy_file": "policy_20.md",
+    "obligation_text": "Contractors recommended HR.",
+    "topic": "HR",
+    "strength": "recommended",
+    "scope": "contractors"
+  },
+  {
+    "policy_file": "policy_21.md",
+    "obligation_text": "Admins shall monitoring.",
+    "topic": "monitoring",
+    "strength": "shall",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_22.md",
+    "obligation_text": "Admins should password.",
+    "topic": "password",
+    "strength": "should",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_23.md",
+    "obligation_text": "Developers should patch.",
+    "topic": "patch",
+    "strength": "should",
+    "scope": "developers"
+  },
+  {
+    "policy_file": "policy_24.md",
+    "obligation_text": "Developers must network.",
+    "topic": "network",
+    "strength": "must",
+    "scope": "developers"
+  },
+  {
+    "policy_file": "policy_25.md",
+    "obligation_text": "All Users must encryption.",
+    "topic": "encryption",
+    "strength": "must",
+    "scope": "all users"
+  },
+  {
+    "policy_file": "policy_26.md",
+    "obligation_text": "Admins must backup. (Reference: SOX 2002)",
+    "topic": "backup",
+    "strength": "must",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_27.md",
+    "obligation_text": "Developers should endpoint.",
+    "topic": "endpoint",
+    "strength": "should",
+    "scope": "developers"
+  },
+  {
+    "policy_file": "policy_28.md",
+    "obligation_text": "Contractors must access. (Reference: GDPR 2016)",
+    "topic": "access",
+    "strength": "must",
+    "scope": "contractors"
+  },
+  {
+    "policy_file": "policy_29.md",
+    "obligation_text": "Contractors prohibited HR.",
+    "topic": "HR",
+    "strength": "prohibited",
+    "scope": "contractors"
+  },
+  {
+    "policy_file": "policy_30.md",
+    "obligation_text": "All Users prohibited mobile.",
+    "topic": "mobile",
+    "strength": "prohibited",
+    "scope": "all users"
+  },
+  {
+    "policy_file": "policy_01.md",
+    "obligation_text": "All Users required HR.",
+    "topic": "HR",
+    "strength": "required",
+    "scope": "all users"
+  },
+  {
+    "policy_file": "policy_02.md",
+    "obligation_text": "Contractors recommended provisioning.",
+    "topic": "provisioning",
+    "strength": "recommended",
+    "scope": "contractors"
+  },
+  {
+    "policy_file": "policy_03.md",
+    "obligation_text": "Employees prohibited mobile.",
+    "topic": "mobile",
+    "strength": "prohibited",
+    "scope": "employees"
+  },
+  {
+    "policy_file": "policy_04.md",
+    "obligation_text": "Employees shall change.",
+    "topic": "change",
+    "strength": "shall",
+    "scope": "employees"
+  },
+  {
+    "policy_file": "policy_05.md",
+    "obligation_text": "Admins prohibited privacy.",
+    "topic": "privacy",
+    "strength": "prohibited",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_06.md",
+    "obligation_text": "Employees shall vendor.",
+    "topic": "vendor",
+    "strength": "shall",
+    "scope": "employees"
+  },
+  {
+    "policy_file": "policy_07.md",
+    "obligation_text": "Developers required endpoint.",
+    "topic": "endpoint",
+    "strength": "required",
+    "scope": "developers"
+  },
+  {
+    "policy_file": "policy_08.md",
+    "obligation_text": "All Users should privacy.",
+    "topic": "privacy",
+    "strength": "should",
+    "scope": "all users"
+  },
+  {
+    "policy_file": "policy_09.md",
+    "obligation_text": "Contractors must HR.",
+    "topic": "HR",
+    "strength": "must",
+    "scope": "contractors"
+  },
+  {
+    "policy_file": "policy_10.md",
+    "obligation_text": "All Users recommended cloud.",
+    "topic": "cloud",
+    "strength": "recommended",
+    "scope": "all users"
+  },
+  {
+    "policy_file": "policy_11.md",
+    "obligation_text": "All Users must monitoring.",
+    "topic": "monitoring",
+    "strength": "must",
+    "scope": "all users"
+  },
+  {
+    "policy_file": "policy_12.md",
+    "obligation_text": "Admins shall provisioning.",
+    "topic": "provisioning",
+    "strength": "shall",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_13.md",
+    "obligation_text": "Employees should change.",
+    "topic": "change",
+    "strength": "should",
+    "scope": "employees"
+  },
+  {
+    "policy_file": "policy_14.md",
+    "obligation_text": "All Users must mobile.",
+    "topic": "mobile",
+    "strength": "must",
+    "scope": "all users"
+  },
+  {
+    "policy_file": "policy_15.md",
+    "obligation_text": "Admins shall physical.",
+    "topic": "physical",
+    "strength": "shall",
+    "scope": "admins"
+  },
+  {
+    "policy_file": "policy_16.md",
+    "obligation_text": "Employees required HR.",
+    "topic": "HR",
+    "strength": "required",
+    "scope": "employees"
+  },
+  {
+    "policy_file": "policy_17.md",
+    "obligation_text": "Developers should backup.",
+    "topic": "backup",
+    "strength": "should",
+    "scope": "developers"
+  },
+  {
+    "policy_file": "policy_18.md",
+    "obligation_text": "All Users prohibited access. (Reference: TLS 1.0)",
+    "topic": "access",
+    "strength": "prohibited",
+    "scope": "all users"
+  },
+  {
+    "policy_file": "policy_19.md",
+    "obligation_text": "Employees shall change. (Reference: FTP)",
+    "topic": "change",
+    "strength": "shall",
+    "scope": "employees"
+  },
+  {
+    "policy_file": "policy_20.md",
+    "obligation_text": "Contractors required HR.",
+    "topic": "HR",
+    "strength": "required",
+    "scope": "contractors"
+  }
+]
