@@ -16,11 +16,13 @@ MODALITY_RULES = (
     (re.compile(r"\bmay\s+not\b", re.IGNORECASE), "PROHIBITED", True, 0.90),
     (re.compile(r"\bshould\s+not\b", re.IGNORECASE), "PROHIBITED", True, 0.80),
     (re.compile(r"\bprohibited\s+from\b", re.IGNORECASE), "PROHIBITED", True, 1.00),
+    (re.compile(r"\bprohibited\b", re.IGNORECASE), "PROHIBITED", True, 1.00),
     (re.compile(r"\bcannot\b", re.IGNORECASE), "PROHIBITED", True, 1.00),
 
     (re.compile(r"\bis\s+required\s+to\b", re.IGNORECASE), "REQUIRED", False, 1.00),
     (re.compile(r"\bare\s+required\s+to\b", re.IGNORECASE), "REQUIRED", False, 1.00),
     (re.compile(r"\brequired\s+to\b", re.IGNORECASE), "REQUIRED", False, 1.00),
+    (re.compile(r"\brequired\b", re.IGNORECASE), "REQUIRED", False, 1.00),
     (re.compile(r"\bis\s+responsible\s+for\b", re.IGNORECASE), "REQUIRED", False, 0.90),
     (re.compile(r"\bare\s+responsible\s+for\b", re.IGNORECASE), "REQUIRED", False, 0.90),
     (re.compile(r"\bmandatory\b", re.IGNORECASE), "REQUIRED", False, 0.95),
@@ -30,6 +32,7 @@ MODALITY_RULES = (
     (re.compile(r"\bshall\b", re.IGNORECASE), "REQUIRED", False, 1.00),
 
     (re.compile(r"\brecommended\s+to\b", re.IGNORECASE), "RECOMMENDED", False, 0.80),
+    (re.compile(r"\brecommended\b", re.IGNORECASE), "RECOMMENDED", False, 0.80),
     (re.compile(r"\bis\s+expected\s+to\b", re.IGNORECASE), "RECOMMENDED", False, 0.80),
     (re.compile(r"\bare\s+expected\s+to\b", re.IGNORECASE), "RECOMMENDED", False, 0.80),
     (re.compile(r"\bshould\b", re.IGNORECASE), "RECOMMENDED", False, 0.80),
