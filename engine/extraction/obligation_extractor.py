@@ -41,6 +41,14 @@ MODALITY_RULES = (
     (re.compile(r"\bmay\b", re.IGNORECASE), "OPTIONAL", False, 0.70),
 )
 
+PASSIVE_PROHIBITION_PATTERN = re.compile(
+    r"^\s*(?P<topic>[A-Za-z][A-Za-z0-9_-]*(?:\s+[A-Za-z][A-Za-z0-9_-]*)*)"
+    r"\s+is\s+prohibited\s+for\s+"
+    r"(?P<actor>all\s+users|all\s+employees|contractors?|developers?|"
+    r"admins?|administrators?|service\s+accounts?|employees?)"
+    r"\s*(?:\.\s*)?(?:\(Reference:\s*[^)]+\))?\s*$",
+    re.IGNORECASE,
+)
 
 TECHNOLOGY_RULES = (
     ("multi-factor authentication", re.compile(r"\bmulti-factor authentication\b", re.I)),
@@ -133,6 +141,22 @@ def _clean_fragment(value: str | None) -> str | None:
 
     return value or None
 
+def _extract_passive_prohibition(
+    sentence: str,
+) -> tuple[str, str, str | None] | None:
+    """Parse passive prohibition sentences into actor, action, and scope."""
+    match = PASSIVE_PROHIBITION_PATTERN.match(sentence)
+
+    if not match:
+        return None
+
+    topic = _clean_fragment(match.group("topic"))
+    actor = _clean_fragment(match.group("actor").lower())
+
+    if topic is None or actor is None:
+        return None
+
+    return actor, topic.lower(), actor
 
 def _detect_modality(sentence: str):
     for pattern, modality, negated, strength in MODALITY_RULES:
@@ -297,18 +321,29 @@ def extract_obligation(
     section_id: str,
     sentence: str,
 ) -> NormalizedObligation | None:
-    detected = _detect_modality(sentence)
+    passive_prohibition = _extract_passive_prohibition(sentence)
 
-    if detected is None:
-        return None
+    if passive_prohibition is not None:
+        subject, action, scope = passive_prohibition
+        object_text = None
+        modality = "PROHIBITED"
+        negated = True
+        strength = 1.0
+    else:
+        detected = _detect_modality(sentence)
 
-    modality_match, modality, negated, strength = detected
+        if detected is None:
+            return None
 
-    subject = _extract_subject(sentence, modality_match)
-    action, object_text = _extract_action_object(sentence, modality_match)
+        modality_match, modality, negated, strength = detected
+
+        subject = _extract_subject(sentence, modality_match)
+        action, object_text = _extract_action_object(sentence, modality_match)
+        scope = _extract_scope(sentence)
 
     technology = _extract_technologies(sentence)
-    scope = _extract_scope(sentence)
+
+    
     frequency = _extract_frequency(sentence)
     condition = _extract_condition(sentence)
     exception = _extract_exception(sentence)
