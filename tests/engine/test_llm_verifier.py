@@ -167,8 +167,9 @@ def test_high_confidence_finding_bypasses_provider(obligations):
     assert warnings == []
 
 
-def test_low_score_finding_bypasses_provider(obligations):
-    finding = make_finding(score=0.60)
+def test_below_drop_threshold_is_silently_dropped(obligations):
+    """Findings with score < 0.50 (drop threshold) must be silently discarded."""
+    finding = make_finding(score=0.40)
     provider = FakeProvider("{}")
 
     result, warnings = verify_findings(
@@ -177,8 +178,33 @@ def test_low_score_finding_bypasses_provider(obligations):
         provider,
     )
 
-    assert result == [finding]
+    assert result == []
     assert provider.prompts == []
+    assert warnings == []
+
+
+def test_in_llm_band_calls_provider(obligations):
+    """Findings with 0.50 <= score < 0.95 must be sent to the LLM verifier."""
+    finding = make_finding(score=0.60)
+    provider = FakeProvider(
+        json.dumps(
+            {
+                "verified": True,
+                "confidence": 0.75,
+                "explanation": "Verified in LLM band.",
+            }
+        )
+    )
+
+    result, warnings = verify_findings(
+        [finding],
+        obligations,
+        provider,
+    )
+
+    assert len(result) == 1
+    assert result[0].llm_verified is True
+    assert len(provider.prompts) == 1  # provider was called
     assert warnings == []
 
 
@@ -390,24 +416,46 @@ def test_stats_record_rejected_finding(obligations):
 
 
 def test_stats_record_bypassed_findings(obligations):
+    """Only score >= 0.95 should bypass; score < 0.50 goes to dropped."""
     stats = VerificationStats()
 
     findings = [
-        make_finding(score=0.60),
-        make_finding(score=0.97),
+        make_finding(score=0.40),  # below drop threshold -> dropped
+        make_finding(score=0.97),  # above accept threshold -> bypassed
     ]
+
+    provider = FakeProvider("{}")
 
     result, warnings = verify_findings(
         findings,
+        obligations,
+        provider,
+        stats=stats,
+    )
+
+    # Only the bypassed (high-score) finding survives
+    assert len(result) == 1
+    assert result[0].deterministic_score == 0.97
+    assert stats.eligible_findings == 0
+    assert stats.bypassed_findings == 1
+    assert stats.dropped_findings == 1
+
+
+def test_stats_record_dropped_finding(obligations):
+    stats = VerificationStats()
+
+    result, warnings = verify_findings(
+        [make_finding(score=0.40)],
         obligations,
         FakeProvider("{}"),
         stats=stats,
     )
 
-    assert result == findings
+    assert result == []
     assert warnings == []
+    assert stats.dropped_findings == 1
     assert stats.eligible_findings == 0
-    assert stats.bypassed_findings == 2
+    assert stats.bypassed_findings == 0
 
 
 def test_stats_record_provider_failure(obligations):

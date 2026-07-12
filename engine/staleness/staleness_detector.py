@@ -36,6 +36,10 @@ DEPRECATED_TECHNOLOGIES: frozenset[str] = frozenset(
         "NIST SP 800-63A",
         "NIST SP 800-63B",
         "PCI DSS v3.2",
+        # Added: present in real policy (Reference: X) citations in the label set.
+        "WEP",
+        "GDPR 2016",
+        "SOX 2002",
     }
 )
 
@@ -78,9 +82,12 @@ def _find_deprecated_references(
 ) -> list[tuple[str, str]]:
     """Return a list of (deprecated_term, obligation_id) pairs found in this policy.
 
-    Checks both the ``technology`` list and ``sentence_text`` of each obligation.
-    The term lookup is case-insensitive for sentence_text matches but preserves
-    the canonical casing from DEPRECATED_TECHNOLOGIES in evidence.
+    Checks ONLY the structured ``technology`` list field of each obligation.
+    Free-text sentence scanning is intentionally excluded: it generates false
+    positives when a deprecated term appears in a '(Reference: X)' citation
+    that is not the mechanism being mandated. The extractor populates the
+    ``technology`` field from these citation patterns, so structured-only
+    detection is both precise and sufficient.
     """
     policy_obligations = [
         ob for ob in obligations if ob.policy_id == policy.policy_id
@@ -94,23 +101,10 @@ def _find_deprecated_references(
     }
 
     for ob in policy_obligations:
-        # Check the structured technology list first (exact match, case-insensitive).
+        # Check the structured technology list (exact match, case-insensitive).
         for tech in ob.technology:
             canonical = _lower_to_canonical.get(tech.lower())
             if canonical is not None:
-                hits.append((canonical, ob.obligation_id))
-
-        # Check free-text sentence for deprecated term occurrences.
-        sentence_lower = ob.sentence_text.lower()
-        for lower_term, canonical in _lower_to_canonical.items():
-            # Already captured via technology list for this obligation; skip.
-            if any(t.lower() == lower_term for t in ob.technology):
-                continue
-            # Use word-boundary-aware search to avoid "SHA-128" matching "SHA-1".
-            pattern = re.compile(
-                r"(?<![a-zA-Z0-9\-])" + re.escape(lower_term) + r"(?![a-zA-Z0-9\-])"
-            )
-            if pattern.search(sentence_lower):
                 hits.append((canonical, ob.obligation_id))
 
     return hits

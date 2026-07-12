@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 from dataclasses import dataclass
 from typing import Protocol
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 from shared.contracts.policy_analysis import Finding, NormalizedObligation
 from dataclasses import dataclass, field
@@ -26,6 +27,7 @@ class VerificationStats:
     verified_findings: int = 0
     rejected_findings: int = 0
     bypassed_findings: int = 0
+    dropped_findings: int = 0
     failed_findings: int = 0
     failure_messages: list[str] = field(default_factory=list)
 
@@ -106,7 +108,7 @@ def verify_findings(
     obligations: list[NormalizedObligation],
     provider: LLMProvider | None,
     *,
-    minimum_score: float = 0.70,
+    minimum_score: float = 0.50,
     maximum_score: float = 0.95,
     stats: VerificationStats | None = None,
 ) -> tuple[list[Finding], list[str]]:
@@ -115,11 +117,16 @@ def verify_findings(
 
     Routing:
     - provider unavailable: preserve findings unchanged
-    - score below minimum_score: preserve unchanged
-    - score >= maximum_score: preserve unchanged
-    - ambiguous score range: ask provider for verification
+    - score >= maximum_score (default 0.95): auto-accept, bypass LLM
+      (reserved for STALE_POLICY / STALE_REFERENCE which always emit 1.0)
+    - minimum_score <= score < maximum_score (default 0.50–0.95):
+      send to LLM verifier; keep only if verified=true
+    - score < minimum_score (default 0.50): drop the candidate entirely;
+      do NOT emit a finding and do NOT call the LLM
 
-    A rejected finding is removed from the returned findings.
+    A rejected finding (LLM says verified=false) is removed from the
+    returned findings. A dropped finding (score too low) is silently
+    discarded.
 
     Provider failures and malformed responses fail open:
     the original finding is preserved and a warning is returned.
@@ -135,7 +142,6 @@ def verify_findings(
         raise ValueError(
             "minimum_score must be less than maximum_score"
         )
-
     active_stats = stats if stats is not None else VerificationStats()
 
     if not findings:
@@ -144,86 +150,121 @@ def verify_findings(
     if provider is None:
         active_stats.bypassed_findings += len(findings)
         return list(findings), []
+
     obligations_by_id = _obligation_index(obligations)
 
-    verified_findings: list[Finding] = []
+    bypassed_findings: list[Finding] = []
+    dropped_count = 0
+    to_verify: list[tuple[Finding, NormalizedObligation, NormalizedObligation]] = []
+    failed_lookup_findings: list[Finding] = []
     warnings: list[str] = []
 
     for finding in findings:
         score = finding.deterministic_score
+        if score >= maximum_score:
+            bypassed_findings.append(finding)
+        elif score < minimum_score:
+            dropped_count += 1
+        else:
+            source_id = finding.source_obligation_id
+            target_id = finding.target_obligation_id
+            source = obligations_by_id.get(source_id) if source_id else None
+            target = obligations_by_id.get(target_id) if target_id else None
 
-        if score < minimum_score or score >= maximum_score:
-            active_stats.bypassed_findings += 1
-            verified_findings.append(finding)
-            continue
+            if source is None or target is None:
+                failed_lookup_findings.append(finding)
+                warning = (
+                    f"[llm] finding={finding.finding_id!r}: "
+                    "source or target obligation not found"
+                )
+                warnings.append(warning)
+                active_stats.failure_messages.append(warning)
+            else:
+                to_verify.append((finding, source, target))
 
-        active_stats.eligible_findings += 1
-        source_id = finding.source_obligation_id
-        target_id = finding.target_obligation_id
+    active_stats.bypassed_findings += len(bypassed_findings)
+    active_stats.dropped_findings += dropped_count
+    active_stats.failed_findings += len(failed_lookup_findings)
 
-        source = obligations_by_id.get(source_id) if source_id else None
-        target = obligations_by_id.get(target_id) if target_id else None
+    verified_findings: list[Finding] = list(bypassed_findings) + list(failed_lookup_findings)
 
-        if source is None or target is None:
-            active_stats.failed_findings += 1
-
-            warning = (
-                f"[llm] finding={finding.finding_id!r}: "
-                "source or target obligation not found"
+    if not to_verify:
+        verified_findings.sort(
+            key=lambda f: (
+                -f.deterministic_score,
+                f.finding_type,
+                f.finding_id,
             )
-            warnings.append(warning)
-            active_stats.failure_messages.append(warning)
-            verified_findings.append(finding)
-            continue
-
-        prompt = build_verification_prompt(
-            finding,
-            source,
-            target,
         )
+        return verified_findings, warnings
 
+    total_to_verify = len(to_verify)
+    print(f"[llm verifier] Starting concurrent verification of {total_to_verify} findings...", flush=True)
+
+    def verify_one(item):
+        finding, source, target = item
+        prompt = build_verification_prompt(finding, source, target)
         try:
             response = provider.generate(prompt)
             verification = parse_verification_response(response)
+            return (finding, verification, None)
         except Exception as exc:
-            active_stats.failed_findings += 1
+            return (finding, None, exc)
 
-            warning = (
-                f"[llm] finding={finding.finding_id!r}: "
-                f"{_safe_error_message(exc)}"
-            )
+    # Use 8 workers to process in parallel
+    completed_count = 0
+    with ThreadPoolExecutor(max_workers=8) as executor:
+        futures = {executor.submit(verify_one, item): item for item in to_verify}
+        for future in as_completed(futures):
+            completed_count += 1
+            finding, verification, exc = future.result()
 
-            warnings.append(warning)
-            active_stats.failure_messages.append(warning)
-            verified_findings.append(finding)
-            continue
-        
-        if not verification.verified:
-            active_stats.rejected_findings += 1
-            continue
+            if completed_count % 10 == 0 or completed_count == total_to_verify:
+                print(f"[llm verifier] Verified {completed_count}/{total_to_verify} findings...", flush=True)
 
-        active_stats.verified_findings += 1
+            active_stats.eligible_findings += 1
 
-        updated = finding.model_copy(
-            update={
-                "llm_verified": True,
-                "confidence": verification.confidence,
-                "explanation": (
-                    f"{finding.explanation} "
-                    f"LLM verification: {verification.explanation}"
-                ),
-                "evidence": {
-                    **finding.evidence,
-                    "llm_verification": {
-                        "verified": verification.verified,
-                        "confidence": verification.confidence,
-                        "explanation": verification.explanation,
-                    },
-                },
-            }
+            if exc is not None:
+                active_stats.failed_findings += 1
+                warning = (
+                    f"[llm] finding={finding.finding_id!r}: "
+                    f"{_safe_error_message(exc)}"
+                )
+                warnings.append(warning)
+                active_stats.failure_messages.append(warning)
+                verified_findings.append(finding)
+            else:
+                if not verification.verified:
+                    active_stats.rejected_findings += 1
+                else:
+                    active_stats.verified_findings += 1
+                    updated = finding.model_copy(
+                        update={
+                            "llm_verified": True,
+                            "confidence": verification.confidence,
+                            "explanation": (
+                                f"{finding.explanation} "
+                                f"LLM verification: {verification.explanation}"
+                            ),
+                            "evidence": {
+                                **finding.evidence,
+                                "llm_verification": {
+                                    "verified": verification.verified,
+                                    "confidence": verification.confidence,
+                                    "explanation": verification.explanation,
+                                },
+                            },
+                        }
+                    )
+                    verified_findings.append(updated)
+
+    verified_findings.sort(
+        key=lambda f: (
+            -f.deterministic_score,
+            f.finding_type,
+            f.finding_id,
         )
-
-        verified_findings.append(updated)
+    )
 
     return verified_findings, warnings
 

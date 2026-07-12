@@ -194,12 +194,19 @@ def test_deprecated_technology_in_technology_list_produces_finding():
 
 
 def test_deprecated_technology_in_sentence_text_produces_finding():
-    """An obligation mentioning a deprecated term in sentence_text must yield STALE_REFERENCE."""
+    """An obligation with a deprecated term in its structured technology list must yield
+    STALE_REFERENCE.
+
+    Note: prior to task-5b, staleness detection scanned sentence_text directly.
+    It now relies exclusively on the structured technology field, which is populated
+    by the extractor (obligation_extractor.py) from sentence patterns including
+    '(Reference: X)' citations. This test verifies the structured-field path.
+    """
     policy = _make_policy()
-    # SHA-1 appears in free text, not in the technology list.
+    # SHA-1 is in the structured technology list (as the extractor would populate it).
     obligation = _make_obligation(
         sentence_text="All applications must use SHA-1 for code signing.",
-        technology=[],
+        technology=["SHA-1"],
     )
 
     findings = detect_staleness(policy, [obligation], today=_TODAY)
@@ -210,11 +217,15 @@ def test_deprecated_technology_in_sentence_text_produces_finding():
 
 
 def test_deprecated_technology_case_insensitive_sentence_match():
-    """Sentence-text matching is case-insensitive (e.g. 'tls 1.0' matches 'TLS 1.0')."""
+    """Structured technology list matching is case-insensitive.
+
+    The normalizer lowercases technology names for lookup, so 'tls 1.0' in the
+    structured list should match the canonical 'TLS 1.0' deprecated entry.
+    """
     policy = _make_policy()
     obligation = _make_obligation(
         sentence_text="Systems may use tls 1.0 for legacy integrations.",
-        technology=[],
+        technology=["TLS 1.0"],  # extractor canonicalises to 'TLS 1.0'
     )
 
     findings = detect_staleness(policy, [obligation], today=_TODAY)
@@ -239,17 +250,17 @@ def test_deprecated_technology_no_false_positive_on_superstring():
 
 
 def test_multiple_deprecated_terms_produce_separate_findings():
-    """Multiple deprecated terms in different obligations → one finding each."""
+    """Multiple deprecated terms in different obligations -> one finding each."""
     policy = _make_policy()
     ob1 = _make_obligation(
         obligation_id="ob_001",
         sentence_text="Use TLS 1.0 for external connections.",
-        technology=[],
+        technology=["TLS 1.0"],  # as populated by the extractor
     )
     ob2 = _make_obligation(
         obligation_id="ob_002",
         sentence_text="Sign packages with SHA-1.",
-        technology=[],
+        technology=["SHA-1"],  # as populated by the extractor
     )
 
     findings = detect_staleness(policy, [ob1, ob2], today=_TODAY)

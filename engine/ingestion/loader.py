@@ -16,13 +16,18 @@ SUPPORTED_EXTENSIONS = {".txt", ".md", ".docx", ".pdf"}
 METADATA_PATTERNS = {
     "title": re.compile(r"^\s*(?:title|#)\s*:?\s*(.+?)\s*$", re.IGNORECASE),
     "version": re.compile(r"^\s*version\s*:\s*(.+?)\s*$", re.IGNORECASE),
-    "owner": re.compile(r"^\s*owner\s*:\s*(.+?)\s*$", re.IGNORECASE),
+    # Author is treated as an alias for owner in real policy files.
+    "owner": re.compile(
+        r"^\s*(?:owner|author)\s*:\s*(.+?)\s*$", re.IGNORECASE
+    ),
     "department": re.compile(r"^\s*department\s*:\s*(.+?)\s*$", re.IGNORECASE),
     "effective_date": re.compile(
         r"^\s*effective\s+date\s*:\s*(.+?)\s*$", re.IGNORECASE
     ),
+    # Matches both synthetic 'Review Date:' and real '**Last Reviewed:**' formats.
+    # Markdown bold markers (**) are stripped before matching (see _extract_metadata).
     "review_date": re.compile(
-        r"^\s*review\s+date\s*:\s*(.+?)\s*$", re.IGNORECASE
+        r"^\s*(?:review\s+date|last\s+reviewed)\s*:\s*(.+?)\s*$", re.IGNORECASE
     ),
     "status": re.compile(r"^\s*status\s*:\s*(.+?)\s*$", re.IGNORECASE),
 }
@@ -141,6 +146,10 @@ def _extract_metadata(text: str, path: Path) -> dict:
         if not stripped:
             continue
 
+        # Strip markdown bold markers (**) so that lines like
+        # '**Last Reviewed:** 2021-08-15' match pattern keys correctly.
+        stripped = stripped.replace("**", "")
+
         for field, pattern in METADATA_PATTERNS.items():
             match = pattern.match(stripped)
 
@@ -171,15 +180,59 @@ def _split_paragraphs(text: str) -> list[str]:
     ]
 
 
-def _split_sentences(text: str) -> list[str]:
+def _split_sentence_text(text: str) -> list[str]:
     compact = re.sub(r"\s+", " ", text).strip()
-
     if not compact:
         return []
+    parts = SENTENCE_SPLIT_PATTERN.split(compact)
+    return [p.strip() for p in parts if p.strip()]
 
-    sentences = SENTENCE_SPLIT_PATTERN.split(compact)
 
-    return [sentence.strip() for sentence in sentences if sentence.strip()]
+def _split_sentences(text: str) -> list[str]:
+    lines = text.splitlines()
+    sentences = []
+    current_sentence = []
+
+    for line in lines:
+        stripped = line.strip()
+        if not stripped:
+            continue
+
+        is_bullet = False
+        if stripped.startswith(("-", "*", "+")):
+            if len(stripped) == 1 or stripped[1].isspace():
+                is_bullet = True
+        else:
+            match = re.match(r"^\d+\.\s+", stripped)
+            if match:
+                is_bullet = True
+
+        if is_bullet:
+            if current_sentence:
+                sentences.extend(_split_sentence_text(" ".join(current_sentence)))
+                current_sentence = []
+
+            if stripped.startswith(("-", "*", "+")):
+                content = stripped[1:].strip()
+            else:
+                content = re.sub(r"^\d+\.\s+", "", stripped).strip()
+
+            current_sentence.append(content)
+        else:
+            if current_sentence:
+                prev_line = current_sentence[-1]
+                if prev_line and prev_line[-1] in ".!?":
+                    sentences.extend(_split_sentence_text(" ".join(current_sentence)))
+                    current_sentence = [stripped]
+                else:
+                    current_sentence.append(stripped)
+            else:
+                current_sentence.append(stripped)
+
+    if current_sentence:
+        sentences.extend(_split_sentence_text(" ".join(current_sentence)))
+
+    return sentences
 
 
 def _is_metadata_line(line: str) -> bool:

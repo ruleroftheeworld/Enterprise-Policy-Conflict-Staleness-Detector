@@ -385,10 +385,13 @@ def test_pipeline_reports_llm_observability():
     assert result.statistics["llm_enabled"] is True
     assert result.statistics["llm_provider"] == "PipelineFakeLLMProvider"
     assert result.statistics["llm_model"] is None
-    assert result.statistics["llm_eligible_findings"] == 3
-    assert result.statistics["llm_verified_findings"] == 3
+    assert result.statistics["llm_eligible_findings"] == 5
+    assert result.statistics["llm_verified_findings"] == 5
     assert result.statistics["llm_rejected_findings"] == 0
-    # 4 staleness findings (score=1.0 ≥ 0.95 bypass threshold) + 5 non-ambiguous
-    # cross-policy findings = 9 bypassed total.
-    assert result.statistics["llm_bypassed_findings"] == 9
+    # 4 staleness findings (score=1.0 >= 0.95 bypass threshold) + findings
+    # with score >= 0.95 that are not staleness bypass the LLM.
+    # The remaining high-score findings that were previously auto-bypassed
+    # at the old 0.70 threshold now enter the LLM band (eligible).
+    assert result.statistics["llm_bypassed_findings"] == 7
+    assert result.statistics["llm_dropped_findings"] == 0
     assert result.statistics["llm_failed_findings"] == 0
